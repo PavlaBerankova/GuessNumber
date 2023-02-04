@@ -11,33 +11,36 @@ import SwiftUI
 struct ContentView: View {
     @State private var userNumber: Int!
     @State public var attempts = 10
-  
+    
     @State private var secretNumber = Int.random(in: 1...100)
     
     @FocusState var isInputActive: Bool
     @State private var showAlert = false
+    @State private var alertLose = false
+    @State private var alertWin = false
+    @State private var scoreTitle = ""
     
     
-//    GeometryReader { geometry in
-//      VStack {
-//        // další kód
-//      }
-//      .padding(.bottom, geometry.safeAreaInsets.bottom)
-//    }
+    //    GeometryReader { geometry in
+    //      VStack {
+    //        // další kód
+    //      }
+    //      .padding(.bottom, geometry.safeAreaInsets.bottom)
+    //    }
     
     
     var body: some View {
         //MARK: background
         GeometryReader { geometry in
-        ZStack {
-            RadialGradient(stops: [
-                .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.4),
-                .init(color: Color(red: 0.3, green: 0.0, blue: 0.3), location: 0.3)],
-                           center: .top, startRadius: 200, endRadius: 600)
-            .ignoresSafeArea()
-            
-            //MARK: Text intro
-           
+            ZStack {
+                RadialGradient(stops: [
+                    .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.4),
+                    .init(color: Color(red: 0.3, green: 0.0, blue: 0.3), location: 0.3)],
+                               center: .top, startRadius: 200, endRadius: 600)
+                .ignoresSafeArea()
+                
+                //MARK: Text intro
+                
                 VStack {
                     Spacer()
                     Group {
@@ -53,6 +56,7 @@ struct ContentView: View {
                         Spacer()
                         Button() {
                             attempts = 10
+                            secretNumber = Int.random(in: 1...100)
                         } label: {
                             Text("Easy")
                                 .font(.title2)
@@ -71,6 +75,7 @@ struct ContentView: View {
                         
                         Button() {
                             attempts = 5
+                            secretNumber = Int.random(in: 1...100)
                         } label: {
                             Text("Hard")
                                 .font(.title2)
@@ -90,10 +95,12 @@ struct ContentView: View {
                     }
                     
                     //MARK: Attempts
-                    Text("Attemtps: \(attempts)")
+                    Text("Attempts: \(attempts)")
                         .foregroundColor(.white)
                         .font(.title2)
-                        .padding(.bottom, 40)
+//                        .padding(.bottom, 40)
+                    Text("\(secretNumber)")
+                        .foregroundColor(.white)
                     Spacer()
                     
                     //MARK: User input
@@ -121,7 +128,30 @@ struct ContentView: View {
                     Spacer()
                     Spacer()
                     Spacer()
-                    Spacer()
+              
+                    
+                //MARK: Score alert
+                        .alert(scoreTitle, isPresented: $showAlert) {
+                            Button("Continue", role: .none) { }
+                        } message: {
+                            Text("Try again!")
+                        }
+                    
+                    
+                    // MARK: Lose alert
+                        .alert(scoreTitle, isPresented: $alertLose) {
+                            Button("Continue", role: .none) { }
+                        } message: {
+                            Text("The secret number is \(secretNumber).")
+                        }
+                    
+                    // MARK: Win alert
+                        .alert(scoreTitle, isPresented: $alertWin) {
+                            Button("Continue", role: .none) { }
+                        } message: {
+                            Text("Congratulations! \n The secret number is \(secretNumber).")
+                        }
+                    
                     
                 }
             }//end ZSTACK
@@ -129,7 +159,20 @@ struct ContentView: View {
     }//end BODY
     
     func play() {
-        
+        attempts -= 1
+        if attempts == 0 {
+            showAlert = false
+            alertLose = true
+            scoreTitle = "YOU LOSE"
+        } else if userNumber > secretNumber {
+            scoreTitle = "TOO HIGH"
+        } else if userNumber < secretNumber {
+            scoreTitle = "TOO LOW"
+        } else if userNumber == secretNumber {
+            showAlert = false
+            alertWin = true
+            scoreTitle = "YOU WIN"
+        }
     }
     
 }//end STRUCT
