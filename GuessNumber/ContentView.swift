@@ -8,115 +8,134 @@
 
 import SwiftUI
 
-struct Menu: View {
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Color(.orange)
-                Text("MAIN MENU")
-                    .font(.largeTitle)
-                    .foregroundColor(.black).bold()
-            }
-            .ignoresSafeArea()
-        }
-        .navigationTitle("Main menu")
-        
-    }
-}
-
 struct ContentView: View {
-    @State private var isSheetVisible = false
-    @State private var userNumber: Int = 0
+    @State private var userNumber: Int!
+    @State public var attempts = 10
+  
+    @State private var secretNumber = Int.random(in: 1...100)
+    
+    @FocusState var isInputActive: Bool
     @State private var showAlert = false
     
+    
+//    GeometryReader { geometry in
+//      VStack {
+//        // další kód
+//      }
+//      .padding(.bottom, geometry.safeAreaInsets.bottom)
+//    }
+    
+    
     var body: some View {
+        //MARK: background
         ZStack {
             RadialGradient(stops: [
-                .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.3),
+                .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.4),
                 .init(color: Color(red: 0.3, green: 0.0, blue: 0.3), location: 0.3)],
                            center: .top, startRadius: 200, endRadius: 600)
             .ignoresSafeArea()
-            VStack {
-                Button("Show sheet") {
-                    isSheetVisible.toggle()
-                }
-                .sheet(isPresented: $isSheetVisible, onDismiss: didDismiss) {
-                    
-                    ZStack {
-                        RadialGradient(stops: [
-                            .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.3),
-                            .init(color: Color(red: 0.3, green: 0.0, blue: 0.3), location: 0.3)],
-                                       center: .top, startRadius: 200, endRadius: 600)
-                        .ignoresSafeArea()
-                        VStack {
-                            VStack {
-                                // MARK: User input
-                                TextField("1~100",value: $userNumber, format: .number)
-                                    .frame(width: 80, height: 40)
-                                    .padding()
-                                    .background(.regularMaterial)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    .font(.title)
-                                //                                    .focused($isInputActive)
-                                    .shadow(radius: 5)
-                                    .toolbar {
-                                        ToolbarItemGroup(placement: .keyboard) {
-                                            Spacer()
-                                            
-                                            
-                                        }
-                                    }
-                            }
-                            .keyboardType(.decimalPad)
-                            Button("Show alert") {
-                                showAlert = true
-                            }
-                            .alert("This is alert", isPresented: $showAlert) {
-                                Button("Continue", role: .none) { }
-                            } message: {
-                                Text("Try again!")
-                            }
-                            
-                            
-                            Button("Dismiss",
-                                   action: { isSheetVisible.toggle() })
-                            .padding(10)
-                            .presentationDetents([.large])
-                        }
-                        Spacer()
-                    }
-                    .ignoresSafeArea()
-                }
-                
-                .padding()
-                .ignoresSafeArea()
-            }
             
-        }
-      
+            //MARK: Text intro
+            GeometryReader { geometry in
+                VStack {
+                    Spacer()
+                    Group {
+                        Text("Guess the number")
+                        Text("1 ~ 100")
+                    }
+                    .font(.title)
+                    .foregroundColor(.white)
+                    
+                    
+                    //MARK: Difficult
+                    HStack {
+                        Spacer()
+                        Button() {
+                            attempts = 10
+                        } label: {
+                            Text("Easy")
+                                .font(.title2)
+                                .padding(.horizontal, 15)
+                                .padding(.vertical, 5)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .foregroundColor(.black)
+                        .tint(.white)
+                        .controlSize(.small)
+                        .font(.title)
+                        .shadow(radius: 10)
+                        .padding(.bottom, 5)
+                        
+                        Spacer()
+                        
+                        Button() {
+                            attempts = 5
+                        } label: {
+                            Text("Hard")
+                                .font(.title2)
+                                .padding(.horizontal, 15)
+                                .padding(.vertical, 5)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .foregroundColor(.black)
+                        .tint(.white)
+                        .controlSize(.small)
+                        .font(.title)
+                        .shadow(radius: 10)
+                        .padding(.bottom, 5)
+                        
+                        Spacer()
+                        
+                    }
+                    
+                    //MARK: Attempts
+                    Text("Attemtps: \(attempts)")
+                        .foregroundColor(.white)
+                        .font(.title2)
+                        .padding(.bottom, 40)
+                    Spacer()
+                    
+                    //MARK: User input
+                    TextField("1~100",value: $userNumber, format: .number)
+                        .frame(width: 80, height: 40)
+                        .padding()
+                        .background(.regularMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .font(.title)
+                        .focused($isInputActive)
+                        .shadow(radius: 5)
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                                
+                                Button("Done") {
+                                    isInputActive = false
+                                    showAlert = true
+                                    play()
+                                }
+                            }
+                        }
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
+                }.padding(.bottom, geometry.safeAreaInsets.bottom)
+            }
+        }//end ZSTACK
+    }//end BODY
+    
+    func play() {
+        
     }
     
-}
-
-func didDismiss() {
-    
-}
+}//end STRUCT
 
 
-
-
-//struct showMenu: View {
-//    var body: some View {
-//        VStack {
-//            Button("Play again", action: { $isSheetVisible.toggle() })
-//            Button("Exit") { }
-//        }
-//    }
-//
-//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(attempts: 2)
     }
 }
