@@ -28,6 +28,7 @@ struct ContentView: View {
     
     var body: some View {
         //MARK: background
+        GeometryReader { geometry in
         ZStack {
             RadialGradient(stops: [
                 .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.4),
@@ -36,7 +37,7 @@ struct ContentView: View {
             .ignoresSafeArea()
             
             //MARK: Text intro
-            GeometryReader { geometry in
+           
                 VStack {
                     Spacer()
                     Group {
@@ -104,6 +105,7 @@ struct ContentView: View {
                         .font(.title)
                         .focused($isInputActive)
                         .shadow(radius: 5)
+                        .keyboardType(.decimalPad)
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
                                 Spacer()
@@ -121,9 +123,9 @@ struct ContentView: View {
                     Spacer()
                     Spacer()
                     
-                }.padding(.bottom, geometry.safeAreaInsets.bottom)
-            }
-        }//end ZSTACK
+                }
+            }//end ZSTACK
+        }.edgesIgnoringSafeArea(.all)//end GEOMETRY
     }//end BODY
     
     func play() {
