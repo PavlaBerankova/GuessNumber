@@ -20,24 +20,14 @@ struct ContentView: View {
     @State private var alertWin = false
     @State private var scoreTitle = ""
     
-    
-    //    GeometryReader { geometry in
-    //      VStack {
-    //        // další kód
-    //      }
-    //      .padding(.bottom, geometry.safeAreaInsets.bottom)
-    //    }
-    
-    
     var body: some View {
         //MARK: background
         GeometryReader { geometry in
             ZStack {
                 RadialGradient(stops: [
-                    .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.4),
+                    .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.3),
                     .init(color: Color(red: 0.3, green: 0.0, blue: 0.3), location: 0.3)],
                                center: .top, startRadius: 200, endRadius: 600)
-                .ignoresSafeArea()
                 
                 //MARK: Text intro
                 
@@ -154,7 +144,7 @@ struct ContentView: View {
                     
                     
                 }
-            }//end ZSTACK
+            }.ignoresSafeArea()//end ZSTACK
         }.edgesIgnoringSafeArea(.all)//end GEOMETRY
     }//end BODY
     
