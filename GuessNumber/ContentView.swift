@@ -18,6 +18,7 @@ struct ContentView: View {
     @State private var showAlert = false
     @State private var alertLose = false
     @State private var alertWin = false
+    @State private var alertError = false
     @State private var scoreTitle = ""
     
     var body: some View {
@@ -35,9 +36,9 @@ struct ContentView: View {
                     Spacer()
                     Group {
                         Text("Guess the number")
-                        Text("1 ~ 100")
+                        Text("🎲 1 ~ 100")
                     }
-                    .font(.title)
+                    .font(.largeTitle)
                     .foregroundColor(.white)
                     
                     
@@ -74,7 +75,7 @@ struct ContentView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .foregroundColor(.black)
-                        .tint(.white)
+                        .tint(.yellow)
                         .controlSize(.small)
                         .font(.title)
                         .shadow(radius: 10)
@@ -130,16 +131,24 @@ struct ContentView: View {
                     
                     // MARK: Lose alert
                         .alert(scoreTitle, isPresented: $alertLose) {
-                            Button("Continue", role: .none) { }
+                            Button("Play again", role: .none) { }
                         } message: {
                             Text("The secret number is \(secretNumber).")
                         }
                     
                     // MARK: Win alert
                         .alert(scoreTitle, isPresented: $alertWin) {
-                            Button("Continue", role: .none) { }
+                            Button("Play again", role: .none) {
+                                attempts = self.attempts
+                            }
                         } message: {
                             Text("Congratulations! \n The secret number is \(secretNumber).")
+                        }
+                    
+                        .alert("ERROR", isPresented: $alertError) {
+                            Button("Continue", role: .none) { }
+                        } message: {
+                            Text(scoreTitle)
                         }
                     
                     
@@ -153,16 +162,28 @@ struct ContentView: View {
         if attempts == 0 {
             showAlert = false
             alertLose = true
-            scoreTitle = "YOU LOSE"
+            scoreTitle = "👎 YOU LOSE 👎"
+        } else if userNumber == nil {
+            showAlert = false
+            alertError = true
+            scoreTitle = "You must enter a number\n from 1 to 100."
+        } else if userNumber > 100 || userNumber == 0 {
+            showAlert = false
+            alertError = true
+            scoreTitle = "This number is out of range.\n Enter a number from 1 to 100."
         } else if userNumber > secretNumber {
-            scoreTitle = "TOO HIGH"
+            scoreTitle = "❌ TOO HIGH ⬆️"
         } else if userNumber < secretNumber {
-            scoreTitle = "TOO LOW"
+            scoreTitle = "❌ TOO LOW ⬇️"
         } else if userNumber == secretNumber {
             showAlert = false
             alertWin = true
-            scoreTitle = "YOU WIN"
+            scoreTitle = "🏆 YOU WIN 🏆"
         }
+    }
+    
+    func playAgain() {
+        
     }
     
 }//end STRUCT
