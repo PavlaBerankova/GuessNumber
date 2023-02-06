@@ -20,6 +20,8 @@ struct ContentView: View {
     @State private var alertWin = false
     @State private var alertError = false
     @State private var scoreTitle = ""
+    @State private var tappedEasy = false
+    @State private var tappedHard = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -43,6 +45,7 @@ struct ContentView: View {
                         Button() {
                             attempts = 10
                             secretNumber = Int.random(in: 1...100)
+                            tappedEasy.toggle()
                         } label: {
                             ButtonText(designation: "Easy")
                               
@@ -54,12 +57,15 @@ struct ContentView: View {
                         .font(.title)
                         .shadow(radius: 10)
                         .padding(.bottom, 5)
+                        .rotation3DEffect(.degrees(tappedEasy == true ? 360 : 0), axis: (x: 0, y: 1, z: 0))
+                        .animation(.default, value: tappedEasy)
                         
                         Spacer()
                         
                         Button() {
                             attempts = 5
                             secretNumber = Int.random(in: 1...100)
+                            tappedHard.toggle()
                         } label: {
                             ButtonText(designation: "Hard")
                         }
@@ -70,6 +76,8 @@ struct ContentView: View {
                         .font(.title)
                         .shadow(radius: 10)
                         .padding(.bottom, 5)
+                        .rotation3DEffect(.degrees(tappedHard == true ? 360 : 0), axis: (x: 0, y: 1, z: 0))
+                        .animation(.default, value: tappedHard)
                         
                         Spacer()
                         
@@ -111,7 +119,7 @@ struct ContentView: View {
                     
                     Spacer()
                     Spacer()
-//                    Spacer()
+                    Spacer()
               
                     
                 //MARK: Score alert
@@ -124,7 +132,9 @@ struct ContentView: View {
                     
                     // MARK: Lose alert
                         .alert(scoreTitle, isPresented: $alertLose) {
-                            Button("Play again", role: .none) { }
+                            Button("Play again", role: .none) {
+                                playAgain()
+                            }
                         } message: {
                             Text("The secret number is \(secretNumber).")
                         }
@@ -132,7 +142,7 @@ struct ContentView: View {
                     // MARK: Win alert
                         .alert(scoreTitle, isPresented: $alertWin) {
                             Button("Play again", role: .none) {
-                                attempts = self.attempts
+                                playAgain()
                             }
                         } message: {
                             Text("Congratulations! \n The secret number is \(secretNumber).")
@@ -151,7 +161,6 @@ struct ContentView: View {
     }//end BODY
     
     func play() {
-        attempts -= 1
         if attempts == 0 {
             showAlert = false
             alertLose = true
@@ -160,14 +169,18 @@ struct ContentView: View {
             showAlert = false
             alertError = true
             scoreTitle = "You must enter a number\n from 1 to 100."
+            attempts -= 1
         } else if userNumber > 100 || userNumber == 0 {
             showAlert = false
             alertError = true
             scoreTitle = "This number is out of range.\n Enter a number from 1 to 100."
+            attempts -= 1
         } else if userNumber > secretNumber {
             scoreTitle = "❌ TOO HIGH ⬆️"
+            attempts -= 1
         } else if userNumber < secretNumber {
             scoreTitle = "❌ TOO LOW ⬇️"
+            attempts -= 1
         } else if userNumber == secretNumber {
             showAlert = false
             alertWin = true
@@ -176,7 +189,8 @@ struct ContentView: View {
     }
     
     func playAgain() {
-        
+        attempts = 10
+        userNumber = 0
     }
     
 }//end STRUCT
