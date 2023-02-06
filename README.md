@@ -1,1 +1,5 @@
-This is a SwiftUI code for a Guess the Number game. It has two difficulty levels (Easy and Hard) and a set number of attempts. The game generates a secret number within the range of 1 to 100 and the player tries to guess the number. The player inputs the number using a text field, and the result is displayed in an alert after the player presses the "Done" button. The code defines the structure of the game's user interface and the basic functionality for playing the game.
+GUESS THE NUMBER APP
+
+You choose two difficulty levels (Easy and Hard) and the number of attempts will be set accordingly. The game generates a secret number within the range of 1 to 100 and the player tries to guess the number. After the player inputs the number, show result in an alert. 
+
+
