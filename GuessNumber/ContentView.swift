@@ -22,16 +22,11 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     
     var body: some View {
-        //MARK: background
         GeometryReader { geometry in
             ZStack {
-                RadialGradient(stops: [
-                    .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.3),
-                    .init(color: Color(red: 0.3, green: 0.0, blue: 0.3), location: 0.3)],
-                               center: .top, startRadius: 200, endRadius: 600)
+            Background()
                 
                 //MARK: Text intro
-                
                 VStack {
                     Spacer()
                     Group {
@@ -49,29 +44,8 @@ struct ContentView: View {
                             attempts = 10
                             secretNumber = Int.random(in: 1...100)
                         } label: {
-                            Text("Easy")
-                                .font(.title2)
-                                .padding(.horizontal, 15)
-                                .padding(.vertical, 5)
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .foregroundColor(.black)
-                        .tint(.white)
-                        .controlSize(.small)
-                        .font(.title)
-                        .shadow(radius: 10)
-                        .padding(.bottom, 5)
-                        
-                        Spacer()
-                        
-                        Button() {
-                            attempts = 5
-                            secretNumber = Int.random(in: 1...100)
-                        } label: {
-                            Text("Hard")
-                                .font(.title2)
-                                .padding(.horizontal, 15)
-                                .padding(.vertical, 5)
+                            ButtonText(designation: "Easy")
+                              
                         }
                         .buttonStyle(.borderedProminent)
                         .foregroundColor(.black)
@@ -83,13 +57,32 @@ struct ContentView: View {
                         
                         Spacer()
                         
+                        Button() {
+                            attempts = 5
+                            secretNumber = Int.random(in: 1...100)
+                        } label: {
+                            ButtonText(designation: "Hard")
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .foregroundColor(.black)
+                        .tint(.orange)
+                        .controlSize(.small)
+                        .font(.title)
+                        .shadow(radius: 10)
+                        .padding(.bottom, 5)
+                        
+                        Spacer()
+                        
                     }
                     
                     //MARK: Attempts
-                    Text("Attempts: \(attempts)")
+                    Group {
+                        Text("Attempts:")
+                        Text("\(attempts)")
+                    }
                         .foregroundColor(.white)
                         .font(.title2)
-//                        .padding(.bottom, 40)
+
                     Text("\(secretNumber)")
                         .foregroundColor(.white)
                     Spacer()
@@ -118,7 +111,7 @@ struct ContentView: View {
                     
                     Spacer()
                     Spacer()
-                    Spacer()
+//                    Spacer()
               
                     
                 //MARK: Score alert
