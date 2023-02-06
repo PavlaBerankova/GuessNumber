@@ -11,8 +11,6 @@
 		4463B1E5298A60D10013690D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1E4298A60D10013690D /* ContentView.swift */; };
 		4463B1E7298A60D30013690D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4463B1E6298A60D30013690D /* Assets.xcassets */; };
 		4463B1EA298A60D30013690D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4463B1E9298A60D30013690D /* Preview Assets.xcassets */; };
-		4463B1F3298A73350013690D /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1F2298A73350013690D /* MainMenu.swift */; };
-		4463B1F5298A734A0013690D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1F4298A734A0013690D /* Game.swift */; };
 		4463B1F7298A73E40013690D /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1F6298A73E40013690D /* Templates.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,8 +20,6 @@
 		4463B1E4298A60D10013690D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4463B1E6298A60D30013690D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4463B1E9298A60D30013690D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4463B1F2298A73350013690D /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
-		4463B1F4298A734A0013690D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4463B1F6298A73E40013690D /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,8 +55,6 @@
 			children = (
 				4463B1E2298A60D10013690D /* GuessNumberApp.swift */,
 				4463B1E4298A60D10013690D /* ContentView.swift */,
-				4463B1F2298A73350013690D /* MainMenu.swift */,
-				4463B1F4298A734A0013690D /* Game.swift */,
 				4463B1F6298A73E40013690D /* Templates.swift */,
 				4463B1E6298A60D30013690D /* Assets.xcassets */,
 				4463B1E8298A60D30013690D /* Preview Content */,
@@ -147,10 +141,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4463B1E5298A60D10013690D /* ContentView.swift in Sources */,
-				4463B1F3298A73350013690D /* MainMenu.swift in Sources */,
 				4463B1E3298A60D10013690D /* GuessNumberApp.swift in Sources */,
 				4463B1F7298A73E40013690D /* Templates.swift in Sources */,
-				4463B1F5298A734A0013690D /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
