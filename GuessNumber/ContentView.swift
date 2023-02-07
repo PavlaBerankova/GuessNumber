@@ -103,7 +103,7 @@ struct ContentView: View {
                         .font(.title)
                         .focused($isInputActive)
                         .shadow(radius: 5)
-                        .keyboardType(.decimalPad)
+                        .keyboardType(.numberPad)
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
                                 Spacer()
