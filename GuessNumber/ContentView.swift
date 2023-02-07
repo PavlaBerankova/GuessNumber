@@ -90,9 +90,8 @@ struct ContentView: View {
                     }
                         .foregroundColor(.white)
                         .font(.title2)
-
-                    Text("\(secretNumber)")
-                        .foregroundColor(.white)
+//                    Text("\(secretNumber)")
+//                        .foregroundColor(.white)
                     Spacer()
                     
                     //MARK: User input
@@ -148,8 +147,9 @@ struct ContentView: View {
                             Text("Congratulations! \n The secret number is \(secretNumber).")
                         }
                     
+                    // MARK: Error alert
                         .alert("ERROR", isPresented: $alertError) {
-                            Button("Continue", role: .none) { }
+                            Button("Try again", role: .none) { }
                         } message: {
                             Text(scoreTitle)
                         }
@@ -160,34 +160,33 @@ struct ContentView: View {
         }.edgesIgnoringSafeArea(.all)//end GEOMETRY
     }//end BODY
     
+
     func play() {
-        if attempts == 0 {
-            showAlert = false
-            alertLose = true
-            scoreTitle = "👎 YOU LOSE 👎"
-        } else if userNumber == nil {
+        if let userNumber = userNumber, userNumber >= 1 && userNumber <= 100 {
+            attempts -= 1
+            if userNumber == secretNumber {
+                showAlert = false
+                scoreTitle = "🏆 YOU WIN 🏆"
+                alertWin = true
+            } else if attempts == 0 {
+                showAlert = false
+                scoreTitle = "👎 YOU LOSE 👎"
+                alertLose = true
+            } else if userNumber > secretNumber {
+                scoreTitle = "❌ TOO HIGH ⬆️"
+               
+            } else if userNumber < secretNumber {
+                scoreTitle = "❌ TOO LOW ⬇️"
+               
+            }
+        } else {
             showAlert = false
             alertError = true
-            scoreTitle = "You must enter a number\n from 1 to 100."
-            attempts -= 1
-        } else if userNumber > 100 || userNumber == 0 {
-            showAlert = false
-            alertError = true
-            scoreTitle = "This number is out of range.\n Enter a number from 1 to 100."
-            attempts -= 1
-        } else if userNumber > secretNumber {
-            scoreTitle = "❌ TOO HIGH ⬆️"
-            attempts -= 1
-        } else if userNumber < secretNumber {
-            scoreTitle = "❌ TOO LOW ⬇️"
-            attempts -= 1
-        } else if userNumber == secretNumber {
-            showAlert = false
-            alertWin = true
-            scoreTitle = "🏆 YOU WIN 🏆"
+            scoreTitle = "Invalid input"
+           
         }
     }
-    
+
     func playAgain() {
         attempts = 10
         userNumber = 0
