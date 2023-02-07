@@ -12,7 +12,7 @@ struct Background: View {
         RadialGradient(stops: [
             .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.3),
             .init(color: Color(red: 0.3, green: 0.0, blue: 0.3), location: 0.3)],
-                       center: .top, startRadius: 200, endRadius: 700)
+                       center: .top, startRadius: 200, endRadius: 650)
     }
 }
 

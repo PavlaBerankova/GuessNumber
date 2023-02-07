@@ -115,7 +115,7 @@ struct ContentView: View {
                                 }
                             }
                         }
-                    
+                    Spacer()
                     Spacer()
                     Spacer()
                     Spacer()
