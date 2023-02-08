@@ -191,8 +191,7 @@ struct ContentView: View {
         attempts = 10
         userNumber = 0
     }
-    
-}//end STRUCT
+}
 
 
 
