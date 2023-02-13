@@ -23,6 +23,9 @@ struct ContentView: View {
     @State private var tappedEasy = false
     @State private var tappedHard = false
     
+    @State private var buttonClickYellowEasy = false
+    @State private var buttonClickOrangeHard = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -43,6 +46,8 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         Button() {
+                            buttonClickYellowEasy.toggle()
+                            buttonClickOrangeHard = false
                             attempts = 10
                             secretNumber = Int.random(in: 1...100)
                             tappedEasy.toggle()
@@ -52,7 +57,7 @@ struct ContentView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .foregroundColor(.black)
-                        .tint(.yellow)
+                        .tint(buttonClickYellowEasy ? .yellow : .white)
                         .controlSize(.small)
                         .font(.title)
                         .shadow(radius: 10)
@@ -63,6 +68,8 @@ struct ContentView: View {
                         Spacer()
                         
                         Button() {
+                            buttonClickOrangeHard.toggle()
+                            buttonClickYellowEasy = false
                             attempts = 5
                             secretNumber = Int.random(in: 1...100)
                             tappedHard.toggle()
@@ -71,7 +78,7 @@ struct ContentView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .foregroundColor(.black)
-                        .tint(.orange)
+                        .tint(buttonClickOrangeHard ? .orange : .white)
                         .controlSize(.small)
                         .font(.title)
                         .shadow(radius: 10)
