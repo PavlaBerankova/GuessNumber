@@ -54,8 +54,9 @@
 			isa = PBXGroup;
 			children = (
 				4463B1E2298A60D10013690D /* GuessNumberApp.swift */,
-				4463B1E4298A60D10013690D /* ContentView.swift */,
-				4463B1F6298A73E40013690D /* Templates.swift */,
+				44C6813F29CAD8FA002722AB /* Views */,
+				44C6813E29CAD8EA002722AB /* Model */,
+				44C6813D29CAD8D3002722AB /* ViewModel */,
 				4463B1E6298A60D30013690D /* Assets.xcassets */,
 				4463B1E8298A60D30013690D /* Preview Content */,
 			);
@@ -68,6 +69,29 @@
 				4463B1E9298A60D30013690D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		44C6813D29CAD8D3002722AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		44C6813E29CAD8EA002722AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44C6813F29CAD8FA002722AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4463B1E4298A60D10013690D /* ContentView.swift */,
+				4463B1F6298A73E40013690D /* Templates.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
