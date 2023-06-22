@@ -15,6 +15,9 @@ struct MainView: View {
             GeometryReader { geometry in
                 ZStack {
                     Background()
+                    VStack {
+                        TextBorder(textIntro: "Guess the Number 🎲 1 ~ 100")
+                    }
                 }
                 .ignoresSafeArea()
             }

@@ -20,16 +20,7 @@ struct Background: View {
 }
 
 
-struct ButtonText: View {
-    let designation: String
-    
-    var body: some View {
-        Text(designation)
-            .font(.title2)
-            .padding(.horizontal, 15)
-            .padding(.vertical, 5)
-    }
-}
+
 
 
 struct Templates_Previews: PreviewProvider {
