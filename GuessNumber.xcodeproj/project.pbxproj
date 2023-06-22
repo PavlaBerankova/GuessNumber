@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4463B1E3298A60D10013690D /* GuessNumberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1E2298A60D10013690D /* GuessNumberApp.swift */; };
-		4463B1E5298A60D10013690D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1E4298A60D10013690D /* ContentView.swift */; };
+		4463B1E5298A60D10013690D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1E4298A60D10013690D /* MainView.swift */; };
 		4463B1E7298A60D30013690D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4463B1E6298A60D30013690D /* Assets.xcassets */; };
 		4463B1EA298A60D30013690D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4463B1E9298A60D30013690D /* Preview Assets.xcassets */; };
 		4463B1F7298A73E40013690D /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1F6298A73E40013690D /* Templates.swift */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		4463B1DF298A60D10013690D /* GuessNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4463B1E2298A60D10013690D /* GuessNumberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessNumberApp.swift; sourceTree = "<group>"; };
-		4463B1E4298A60D10013690D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4463B1E4298A60D10013690D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4463B1E6298A60D30013690D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4463B1E9298A60D30013690D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4463B1F6298A73E40013690D /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
@@ -54,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				4463B1E2298A60D10013690D /* GuessNumberApp.swift */,
+				44C3430C2A447ACD00C56E4E /* Screens */,
 				44C6813F29CAD8FA002722AB /* Views */,
 				44C6813E29CAD8EA002722AB /* Model */,
 				44C6813D29CAD8D3002722AB /* ViewModel */,
@@ -69,6 +70,14 @@
 				4463B1E9298A60D30013690D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		44C3430C2A447ACD00C56E4E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4463B1E4298A60D10013690D /* MainView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		44C6813D29CAD8D3002722AB /* ViewModel */ = {
@@ -88,7 +97,6 @@
 		44C6813F29CAD8FA002722AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4463B1E4298A60D10013690D /* ContentView.swift */,
 				4463B1F6298A73E40013690D /* Templates.swift */,
 			);
 			path = Views;
@@ -164,7 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4463B1E5298A60D10013690D /* ContentView.swift in Sources */,
+				4463B1E5298A60D10013690D /* MainView.swift in Sources */,
 				4463B1E3298A60D10013690D /* GuessNumberApp.swift in Sources */,
 				4463B1F7298A73E40013690D /* Templates.swift in Sources */,
 			);
