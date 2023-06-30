@@ -23,7 +23,8 @@ struct TextBorder: View {
                     .opacity(0.2)
                 )
         }
-        .padding(.horizontal, 30)
+        .padding(.horizontal, 10)
+        .padding(.bottom, 50)
     }
 }
 

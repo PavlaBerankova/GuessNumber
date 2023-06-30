@@ -8,21 +8,29 @@
 import SwiftUI
 
 struct Buttons: View {
-    let difficult: String
-    let attempt: Int
-    let color: Color?
+    var title: String
+    var color: Color
+   
     
     var body: some View {
-        Text(difficult)
-            .font(.title2)
-            .padding(.horizontal, 15)
-            .padding(.vertical, 5)
+        Text(title.uppercased())
+            .font(.largeTitle).bold()
+            .foregroundColor(color)
+            .frame(maxWidth: .infinity)
+            .frame(height: 100)
+            .background(RoundedRectangle(cornerRadius: 20).stroke(style: StrokeStyle(lineWidth: 5))
+                .foregroundColor(color))
+            .padding(.horizontal, 40)
     }
 }
 
 struct Buttons_Previews: PreviewProvider {
     static var previews: some View {
-        Buttons(difficult: "Easy", attempt: 10, color: .orange)
+        VStack {
+            Buttons(title: "easy", color: .indigo)
+        }
+        .padding(.horizontal, 20)
+       
     }
 }
 

@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4433D0912A4EC18800DF0E15 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433D0902A4EC18800DF0E15 /* GameView.swift */; };
 		4463B1E3298A60D10013690D /* GuessNumberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1E2298A60D10013690D /* GuessNumberApp.swift */; };
 		4463B1E5298A60D10013690D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1E4298A60D10013690D /* MainView.swift */; };
 		4463B1E7298A60D30013690D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4463B1E6298A60D30013690D /* Assets.xcassets */; };
 		4463B1EA298A60D30013690D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4463B1E9298A60D30013690D /* Preview Assets.xcassets */; };
-		4463B1F7298A73E40013690D /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1F6298A73E40013690D /* Templates.swift */; };
+		4463B1F7298A73E40013690D /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1F6298A73E40013690D /* Background.swift */; };
 		44C3430E2A447BFC00C56E4E /* TextBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3430D2A447BFC00C56E4E /* TextBorder.swift */; };
 		44C343102A447F2700C56E4E /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3430F2A447F2700C56E4E /* Buttons.swift */; };
 		44C343122A44802200C56E4E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C343112A44802200C56E4E /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4433D0902A4EC18800DF0E15 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4463B1DF298A60D10013690D /* GuessNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4463B1E2298A60D10013690D /* GuessNumberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessNumberApp.swift; sourceTree = "<group>"; };
 		4463B1E4298A60D10013690D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4463B1E6298A60D30013690D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4463B1E9298A60D30013690D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4463B1F6298A73E40013690D /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
+		4463B1F6298A73E40013690D /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		44C3430D2A447BFC00C56E4E /* TextBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBorder.swift; sourceTree = "<group>"; };
 		44C3430F2A447F2700C56E4E /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		44C343112A44802200C56E4E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				4463B1E4298A60D10013690D /* MainView.swift */,
+				4433D0902A4EC18800DF0E15 /* GameView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -104,7 +107,7 @@
 		44C6813F29CAD8FA002722AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4463B1F6298A73E40013690D /* Templates.swift */,
+				4463B1F6298A73E40013690D /* Background.swift */,
 				44C3430D2A447BFC00C56E4E /* TextBorder.swift */,
 				44C3430F2A447F2700C56E4E /* Buttons.swift */,
 			);
@@ -186,7 +189,8 @@
 				4463B1E5298A60D10013690D /* MainView.swift in Sources */,
 				4463B1E3298A60D10013690D /* GuessNumberApp.swift in Sources */,
 				44C3430E2A447BFC00C56E4E /* TextBorder.swift in Sources */,
-				4463B1F7298A73E40013690D /* Templates.swift in Sources */,
+				4463B1F7298A73E40013690D /* Background.swift in Sources */,
+				4433D0912A4EC18800DF0E15 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

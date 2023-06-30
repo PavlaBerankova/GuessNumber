@@ -9,21 +9,50 @@
 import SwiftUI
 
 struct MainView: View {
+ 
+    let easy = Difficult.easy
+    let hard = Difficult.hard
+    let backgroundColor: Screen
     
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
                 ZStack {
-                    Background()
-                    VStack {
+                    Background(screen: .menu)
+                    VStack(spacing: 20) {
                         TextBorder(textIntro: "Guess the Number 🎲 1 ~ 100")
-                    }
-                }
+                        NavigationLink {
+                            GameView(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
+                        } label: {
+                            Buttons(title: easy.title, color: .black)
+                        }
+                        
+                        NavigationLink {
+                            GameView(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
+                        } label: {
+                            Buttons(title: hard.title, color: .black)
+                        }
+                        } //: VSTACK
+                    .padding(.horizontal, 20)
+//                            GameView(difficult: model.game)
+//                            } label: {
+//                                Buttons(difficult: difficult.rawValue, attempt: 5, color: .black, backgroundColor: .easy)
+//                            }
+//
+//                        NavigationLink {
+//                            GameView(choosenLevel: "hard")
+//                        } label: {
+//                            Buttons(difficult: "hard", attempt: 5, color: .black, backgroundColor: .hard)
+//                        }
+                        } //: ZSTACK
                 .ignoresSafeArea()
-            }
+                    
+                    }
+                   
+                } //: NAVIGATIONSTACK
+                
+            } //: BODY
         }
-    }
-}
 //    @State private var userNumber: Int!
 //    @State public var attempts = 10
 //
@@ -212,6 +241,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(backgroundColor: .menu)
     }
 }

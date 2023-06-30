@@ -1,14 +1,26 @@
-//
-//  Game.swift
-//  GuessNumber
-//
-//  Created by Pavla Beránková on 22.06.2023.
-//
+import SwiftUI
 
-import Foundation
-
-struct Game {
-    let difficult: String
-    let attempt: Int
-    let color: String?
+enum Difficult {
+    case easy
+    case hard
+    
+    var title: String {
+        switch self {
+        case .easy:
+            return "EASY"
+        case .hard:
+            return "HARD"
+        }
+    }
+    
+    var attempts: Int {
+        switch self {
+        case .easy:
+            return 10
+        case .hard:
+            return 5
+        }
+    }
 }
+
+
