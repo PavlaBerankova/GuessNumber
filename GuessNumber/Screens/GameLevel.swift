@@ -13,20 +13,27 @@ struct GameLevel: View {
     let backgroundColor: Screen
     
     @State private var userNumber: Int!
+    @State private var testNumber = "56"
+    var userAttempts = [String]()
     
     var body: some View {
-        ZStack {
-            BackgroundView(screen: backgroundColor)
-            
-            VStack {
-                TextFrameView(textFirstLine: "\(title)".uppercased(), textSecondLine: "ATTEMPTS: \(attempts)")
+        NavigationStack {
+            ZStack {
+                BackgroundView(screen: backgroundColor)
                 
-                
-            } //: VSTACK
-            .padding(.horizontal, 20)
-            
-            Spacer()
-        } //: ZSTACK
+                VStack {
+                    TextFrameView(textFirstLine: "\(title)".uppercased(), textSecondLine: "ATTEMPTS: \(attempts)")
+                    
+                    AttemptFrameView(chooseNumber: testNumber)
+                    
+                    TextFieldView()
+                    Spacer()
+                } //: VSTACK
+                .padding(.horizontal, 20)
+            } //: ZSTACK
+            .navigationTitle("LEVEL: \(title)")
+            .navigationBarTitleDisplayMode(.large)
+        }
     }
 }
 
