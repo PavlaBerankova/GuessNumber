@@ -12,7 +12,7 @@ enum Screen {
 }
 
 struct Background: View {
-    var topColor = Color(.purple)
+    var topColor: Color
     var bottomColor: Color
     
     init(screen: Screen) {

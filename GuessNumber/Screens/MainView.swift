@@ -20,17 +20,17 @@ struct MainView: View {
                 ZStack {
                     Background(screen: .menu)
                     VStack(spacing: 20) {
-                        TextBorder(textIntro: "Guess the Number 🎲 1 ~ 100")
+                        TextFrame(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
                         NavigationLink {
                             GameView(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
                         } label: {
-                            Buttons(title: easy.title, color: .black)
+                            LevelButtons(title: easy.title, color: .black)
                         }
                         
                         NavigationLink {
                             GameView(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
                         } label: {
-                            Buttons(title: hard.title, color: .black)
+                            LevelButtons(title: hard.title, color: .black)
                         }
                         } //: VSTACK
                     .padding(.horizontal, 20)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Buttons: View {
+struct LevelButtons: View {
     var title: String
     var color: Color
    
@@ -24,10 +24,10 @@ struct Buttons: View {
     }
 }
 
-struct Buttons_Previews: PreviewProvider {
+struct LevelButtons_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Buttons(title: "easy", color: .indigo)
+            LevelButtons(title: "easy", color: .indigo)
         }
         .padding(.horizontal, 20)
        

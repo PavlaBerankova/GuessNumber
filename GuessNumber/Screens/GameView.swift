@@ -18,11 +18,9 @@ struct GameView: View {
         ZStack {
             Background(screen: backgroundColor)
             
-            VStack(spacing: 20) {
-                Text("LEVEL: \(title)".uppercased())
-                    .font(.largeTitle).bold()
-                Text("\(attempts)")
-                    .font(.largeTitle)
+            VStack {
+                TextFrame(textFirstLine: "\(title)".uppercased(), textSecondLine: "ATTEMPTS: \(attempts)")
+                
                 TextField("1~100",value: $userNumber, format: .number)
                                         .frame(width: 80, height: 40)
                                         .padding()
@@ -32,8 +30,11 @@ struct GameView: View {
 //                                        .focused($isInputActive)
                                         .shadow(radius: 5)
                                         .keyboardType(.numberPad)
-            }
-        }
+            } //: VSTACK
+            .padding(.horizontal, 20)
+            
+            Spacer()
+        } //: ZSTACK
     }
 }
 
