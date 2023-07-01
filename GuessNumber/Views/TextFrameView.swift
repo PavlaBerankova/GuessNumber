@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFrame: View {
+struct TextFrameView: View {
     let textFirstLine: String
     let textSecondLine: String
     
@@ -32,8 +32,8 @@ struct TextFrame: View {
     }
 }
 
-struct TextFrame_Previews: PreviewProvider {
+struct TextFrameView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFrame(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
+        TextFrameView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
     }
 }

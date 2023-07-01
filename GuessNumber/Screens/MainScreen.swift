@@ -8,30 +8,30 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainScreen: View {
  
     let easy = Difficult.easy
     let hard = Difficult.hard
     let backgroundColor: Screen
-    let colorPlum = Color("Plum")
+    let colorPlum = Color(.white)
     
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
                 ZStack {
-                    Background(screen: .menu)
+                    BackgroundView(screen: .menu)
                     VStack(spacing: 20) {
-                        TextFrame(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
+                        TextFrameView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
                         NavigationLink {
-                            GameView(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
+                            GameLevel(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
                         } label: {
-                            LevelButtons(title: easy.title, colorText: .white, colorFrame: colorPlum)
+                            LevelButtonsView(title: easy.title, colorText: .white, colorFrame: colorPlum)
                         }
                         
                         NavigationLink {
-                            GameView(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
+                            GameLevel(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
                         } label: {
-                            LevelButtons(title: hard.title, colorText: .white, colorFrame: colorPlum)
+                            LevelButtonsView(title: hard.title, colorText: .white, colorFrame: colorPlum)
                         }
                         } //: VSTACK
                     .padding(.horizontal, 20)
@@ -240,8 +240,8 @@ struct MainView: View {
 
 
 
-struct MainView_Previews: PreviewProvider {
+struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(backgroundColor: .menu)
+        MainScreen(backgroundColor: .menu)
     }
 }

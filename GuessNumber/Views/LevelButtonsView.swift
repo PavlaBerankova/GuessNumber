@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LevelButtons: View {
+struct LevelButtonsView: View {
     var title: String
     var colorText: Color
     var colorFrame: Color
@@ -19,16 +19,16 @@ struct LevelButtons: View {
             .foregroundColor(colorText)
             .frame(maxWidth: .infinity)
             .frame(height: 100)
-            .background(RoundedRectangle(cornerRadius: 20).stroke(style: StrokeStyle(lineWidth: 5))
+            .background(RoundedRectangle(cornerRadius: 20).stroke(style: StrokeStyle(lineWidth: 2))
                 .foregroundColor(colorFrame))
             .padding(.horizontal, 40)
     }
 }
 
-struct LevelButtons_Previews: PreviewProvider {
+struct LevelButtonsView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            LevelButtons(title: "easy", colorText: .white, colorFrame: Color("Plum"))
+            LevelButtonsView(title: "easy", colorText: .white, colorFrame: Color("Plum"))
         }
         .padding(.horizontal, 20)
        

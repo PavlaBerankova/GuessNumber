@@ -11,7 +11,7 @@ enum Screen {
     case easy, hard, menu
 }
 
-struct Background: View {
+struct BackgroundView: View {
     var topColor: Color
     var bottomColor: Color
     
@@ -32,21 +32,11 @@ struct Background: View {
     var body: some View {
         LinearGradient(colors: [topColor, bottomColor], startPoint: .topTrailing, endPoint: .bottomTrailing)
             .ignoresSafeArea()
-        
-//        LinearGradient(colors: [Color("background1"), .indigo], startPoint: .top, endPoint: .bottom)
-//        RadialGradient(stops: [
-//            .init(color: Color(red: 0.2, green: 0.0, blue: 0.2), location: 0.3),
-//            .init(color: Color(red: 0.3, green: 0.0, blue: 0.3), location: 0.3)],
-//                       center: .top, startRadius: 200, endRadius: 650)
     }
 }
 
-
-
-
-
-struct Background_Previews: PreviewProvider {
+struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        Background(screen: .menu)
+        BackgroundView(screen: .menu)
     }
 }
