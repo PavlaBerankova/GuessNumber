@@ -16,7 +16,7 @@ struct Background: View {
     var bottomColor: Color
     
     init(screen: Screen) {
-        self.topColor = .purple
+        self.topColor = Color("Blueberry")
         
         switch screen {
         case .easy:
@@ -24,13 +24,13 @@ struct Background: View {
         case .hard:
             bottomColor = Color(.red)
         case .menu:
-            bottomColor = Color(.systemIndigo)
+            bottomColor = Color("background2")
             
         }
     }
     
     var body: some View {
-        LinearGradient(colors: [topColor, bottomColor], startPoint: .top, endPoint: .bottom)
+        LinearGradient(colors: [topColor, bottomColor], startPoint: .topTrailing, endPoint: .bottomTrailing)
             .ignoresSafeArea()
         
 //        LinearGradient(colors: [Color("background1"), .indigo], startPoint: .top, endPoint: .bottom)

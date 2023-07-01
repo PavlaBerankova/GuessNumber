@@ -13,6 +13,7 @@ struct MainView: View {
     let easy = Difficult.easy
     let hard = Difficult.hard
     let backgroundColor: Screen
+    let colorPlum = Color("Plum")
     
     var body: some View {
         NavigationStack {
@@ -24,13 +25,13 @@ struct MainView: View {
                         NavigationLink {
                             GameView(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
                         } label: {
-                            LevelButtons(title: easy.title, color: .black)
+                            LevelButtons(title: easy.title, colorText: .white, colorFrame: colorPlum)
                         }
                         
                         NavigationLink {
                             GameView(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
                         } label: {
-                            LevelButtons(title: hard.title, color: .black)
+                            LevelButtons(title: hard.title, colorText: .white, colorFrame: colorPlum)
                         }
                         } //: VSTACK
                     .padding(.horizontal, 20)

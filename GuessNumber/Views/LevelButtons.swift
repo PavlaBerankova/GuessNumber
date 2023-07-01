@@ -9,17 +9,18 @@ import SwiftUI
 
 struct LevelButtons: View {
     var title: String
-    var color: Color
+    var colorText: Color
+    var colorFrame: Color
    
     
     var body: some View {
         Text(title.uppercased())
-            .font(.largeTitle).bold()
-            .foregroundColor(color)
+            .font(.largeTitle)
+            .foregroundColor(colorText)
             .frame(maxWidth: .infinity)
             .frame(height: 100)
             .background(RoundedRectangle(cornerRadius: 20).stroke(style: StrokeStyle(lineWidth: 5))
-                .foregroundColor(color))
+                .foregroundColor(colorFrame))
             .padding(.horizontal, 40)
     }
 }
@@ -27,7 +28,7 @@ struct LevelButtons: View {
 struct LevelButtons_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            LevelButtons(title: "easy", color: .indigo)
+            LevelButtons(title: "easy", colorText: .white, colorFrame: Color("Plum"))
         }
         .padding(.horizontal, 20)
        
