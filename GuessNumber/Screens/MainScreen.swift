@@ -17,22 +17,25 @@ struct MainScreen: View {
     
     var body: some View {
         NavigationStack {
-            GeometryReader { geometry in
                 ZStack {
                     BackgroundView(screen: .menu)
                     VStack(spacing: 20) {
                         TextFrameView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
-                        NavigationLink {
-                            GameLevel(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
-                        } label: {
-                            LevelButtonsView(title: easy.title, colorText: .white, colorFrame: colorPlum)
-                        }
                         
-                        NavigationLink {
-                            GameLevel(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
-                        } label: {
-                            LevelButtonsView(title: hard.title, colorText: .white, colorFrame: colorPlum)
+                        HStack(spacing: 30) {
+                            NavigationLink {
+                                GameLevel(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
+                            } label: {
+                                LevelButtonsView(title: easy.title, colorText: Color("background2"), colorFrame: colorPlum)
+                            }
+                            
+                            NavigationLink {
+                                GameLevel(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
+                            } label: {
+                                LevelButtonsView(title: hard.title, colorText: Color("background2"), colorFrame: colorPlum)
+                            }
                         }
+                      
                         } //: VSTACK
                     .padding(.horizontal, 20)
 //                            GameView(difficult: model.game)
@@ -48,7 +51,7 @@ struct MainScreen: View {
                         } //: ZSTACK
                 .ignoresSafeArea()
                     
-                    }
+                    
                    
                 } //: NAVIGATIONSTACK
                 

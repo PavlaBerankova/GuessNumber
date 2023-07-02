@@ -18,22 +18,26 @@ struct TextFrameView: View {
             Text(textSecondLine)
                 
         }
-        .font(.largeTitle).bold()
-        .foregroundColor(.black)
+        .font(.title).bold()
+        .foregroundColor(.white)
         .padding()
-        .frame(maxWidth: .infinity)
-        .frame(height: 150)
-        .background(RoundedRectangle(cornerRadius: 10)
-            .fill(Color(.lightGray))
-            .opacity(0.3)
-        )
-        .padding(.horizontal, 10)
-        .padding(.bottom, 50)
+//        .frame(maxWidth: .infinity)
+//        .frame(height: 150)
+//        .background(RoundedRectangle(cornerRadius: 10)
+//            .fill(Color(.white))
+            
     }
 }
 
 struct TextFrameView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFrameView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
+        ZStack {
+            BackgroundView(screen: .menu)
+            VStack {
+                TextFrameView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
+            }
+            .padding(.horizontal)
+        }
+       
     }
 }

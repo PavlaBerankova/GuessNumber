@@ -12,28 +12,58 @@ struct GameLevel: View {
     let attempts: Int
     let backgroundColor: Screen
     
-    @State private var userNumber: Int!
-    @State private var testNumber = "56"
-    var userAttempts = [String]()
-    
+    @FocusState private var isInputActive: Bool
+//    @State private var userNumber = 0
+//    @State private var testNumber = "56"
+    @State var userInput: Int!
+    @State var userAttempts = [Int]()
+        
     var body: some View {
         NavigationStack {
-            ZStack {
-                BackgroundView(screen: backgroundColor)
-                
-                VStack {
-                    TextFrameView(textFirstLine: "\(title)".uppercased(), textSecondLine: "ATTEMPTS: \(attempts)")
+            GeometryReader { geometry in
+                ZStack {
+                    BackgroundView(screen: backgroundColor)
                     
-                    AttemptFrameView(chooseNumber: testNumber)
+                    VStack {
+                        TextFrameView(textFirstLine: "\(title)".uppercased(), textSecondLine: "ATTEMPTS: \(attempts)")
+                        
+                        LazyVGrid(columns: ColumnAttempts().column) {
+                        ForEach(userAttempts, id: \.self) { item in
+                                AttemptFrameView(chooseNumber: item)
+                            }
+                        }
                     
-                    TextFieldView()
-                    Spacer()
-                } //: VSTACK
-                .padding(.horizontal, 20)
-            } //: ZSTACK
-            .navigationTitle("LEVEL: \(title)")
-            .navigationBarTitleDisplayMode(.large)
+                        TextField("1 ~ 100", value: $userInput, format: .number)
+                            .font(.title)
+                            .padding([.leading, .trailing], 10)
+                            .foregroundColor(.black)
+                            .frame(width: 110, height: 50)
+                        
+                            .background(Color.white).cornerRadius(10)
+                            .keyboardType(.numberPad)
+                            .focused($isInputActive)
+                            .toolbar {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    Spacer()
+                                    Button("Done") {
+                                        userAttempts.append(userInput)
+                                        isInputActive.toggle()
+                                    }
+                                }
+                            }
+                        
+                        Spacer()
+                    } //: VSTACK
+                    .padding(.horizontal, 20)
+                } //: ZSTACK
+                //                .navigationTitle("LEVEL: \(title)")
+                //                .navigationBarTitleDisplayMode(.large)
+            }
         }
+    }
+    
+    func addNumberToArray() {
+        
     }
 }
 

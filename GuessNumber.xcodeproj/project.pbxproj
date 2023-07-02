@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440FC12B2A516D5000D0605A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440FC12A2A516D5000D0605A /* Constants.swift */; };
 		4433D0912A4EC18800DF0E15 /* GameLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433D0902A4EC18800DF0E15 /* GameLevel.swift */; };
 		4433D0932A50A22100DF0E15 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433D0922A50A22000DF0E15 /* TextFieldView.swift */; };
 		4433D0952A50B5E100DF0E15 /* AttemptFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433D0942A50B5E100DF0E15 /* AttemptFrameView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		440FC12A2A516D5000D0605A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4433D0902A4EC18800DF0E15 /* GameLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLevel.swift; sourceTree = "<group>"; };
 		4433D0922A50A22000DF0E15 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		4433D0942A50B5E100DF0E15 /* AttemptFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttemptFrameView.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		440FC1292A516D3200D0605A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				440FC12A2A516D5000D0605A /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		4463B1D6298A60D10013690D = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 				4463B1E2298A60D10013690D /* GuessNumberApp.swift */,
 				44C3430C2A447ACD00C56E4E /* Screens */,
 				44C6813F29CAD8FA002722AB /* Views */,
+				440FC1292A516D3200D0605A /* Constants */,
 				44C6813E29CAD8EA002722AB /* Model */,
 				44C6813D29CAD8D3002722AB /* ViewModel */,
 				4463B1E6298A60D30013690D /* Assets.xcassets */,
@@ -195,6 +206,7 @@
 				44C343122A44802200C56E4E /* Game.swift in Sources */,
 				4433D0932A50A22100DF0E15 /* TextFieldView.swift in Sources */,
 				4463B1E5298A60D10013690D /* MainScreen.swift in Sources */,
+				440FC12B2A516D5000D0605A /* Constants.swift in Sources */,
 				4463B1E3298A60D10013690D /* GuessNumberApp.swift in Sources */,
 				44C3430E2A447BFC00C56E4E /* TextFrameView.swift in Sources */,
 				4463B1F7298A73E40013690D /* BackgroundView.swift in Sources */,

@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct AttemptFrameView: View {
-    let chooseNumber: String
+    let chooseNumber: Int
     
     var body: some View {
         VStack {
             Text("\(chooseNumber)")
-                .font(.title2)
-                .padding()
-                .frame(width: 60, height: 60)
-            .background(Color.white.opacity(0.5).cornerRadius(20))
+                .font(.system(size: 10))
+                .frame(width: 30, height: 30)
+            .background(Color.white).cornerRadius(10)
         }
         .padding(.bottom)
         
@@ -28,11 +27,11 @@ struct AttemptFrameView_Previews: PreviewProvider {
         ZStack {
             BackgroundView(screen: .easy)
              HStack {
-                 AttemptFrameView(chooseNumber: "95")
-                 AttemptFrameView(chooseNumber: "1")
-                 AttemptFrameView(chooseNumber: "95")
-                 AttemptFrameView(chooseNumber: "95")
-                 AttemptFrameView(chooseNumber: "95")
+                 AttemptFrameView(chooseNumber: 95)
+                 AttemptFrameView(chooseNumber: 1)
+                 AttemptFrameView(chooseNumber: 95)
+                 AttemptFrameView(chooseNumber: 95)
+                 AttemptFrameView(chooseNumber: 95)
                  
             }
         }

@@ -14,24 +14,35 @@ struct LevelButtonsView: View {
    
     
     var body: some View {
-        Text(title.uppercased())
-            .font(.largeTitle)
-            .foregroundColor(colorText)
-            .frame(maxWidth: .infinity)
-            .frame(height: 100)
-            .background(RoundedRectangle(cornerRadius: 20).stroke(style: StrokeStyle(lineWidth: 2))
-                .foregroundColor(colorFrame))
-            .padding(.horizontal, 40)
+        HStack {
+            VStack {
+                Text("Level")
+                    .font(.headline)
+                    .underline()
+                    .padding(.bottom, 2)
+                Text(title.uppercased()).bold()
+            }
+           
+                .font(.title)
+                .foregroundColor(colorText)
+                .frame(width: 100)
+                .frame(height: 100)
+                .background(RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(colorFrame))
+        }
     }
 }
 
 struct LevelButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-            LevelButtonsView(title: "easy", colorText: .white, colorFrame: Color("Plum"))
+        ZStack {
+            BackgroundView(screen: .menu)
+            HStack {
+                LevelButtonsView(title: "easy", colorText: Color("Plum"), colorFrame: .white)
+                LevelButtonsView(title: "hard", colorText: Color("Plum"), colorFrame: .white)
+            }
+            .padding(.horizontal, 20)
         }
-        .padding(.horizontal, 20)
-       
     }
 }
 
