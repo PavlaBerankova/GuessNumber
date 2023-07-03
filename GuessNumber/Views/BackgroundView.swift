@@ -16,15 +16,15 @@ struct BackgroundView: View {
     var bottomColor: Color
     
     init(screen: Screen) {
-        self.topColor = Color("Blueberry")
+        self.topColor = Color("background2")
         
         switch screen {
         case .easy:
-            bottomColor = Color(.orange)
+            bottomColor = Color("DarkGrape")
         case .hard:
-            bottomColor = Color(.red)
+            bottomColor = Color("Maroon")
         case .menu:
-            bottomColor = Color("background2")
+            bottomColor = Color("Midnight")
             
         }
     }

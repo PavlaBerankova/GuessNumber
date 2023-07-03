@@ -15,18 +15,15 @@ struct LevelButtonsView: View {
     
     var body: some View {
         HStack {
-            VStack {
-                Text("Level")
-                    .font(.headline)
-                    .underline()
-                    .padding(.bottom, 2)
+            HStack {
+                Text("Level".uppercased())
                 Text(title.uppercased()).bold()
             }
            
                 .font(.title)
+                
                 .foregroundColor(colorText)
-                .frame(width: 100)
-                .frame(height: 100)
+                .frame(width: 250, height: 80)
                 .background(RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(colorFrame))
         }
@@ -37,7 +34,7 @@ struct LevelButtonsView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView(screen: .menu)
-            HStack {
+            VStack {
                 LevelButtonsView(title: "easy", colorText: Color("Plum"), colorFrame: .white)
                 LevelButtonsView(title: "hard", colorText: Color("Plum"), colorFrame: .white)
             }
