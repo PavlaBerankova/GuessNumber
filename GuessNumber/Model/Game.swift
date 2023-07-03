@@ -24,3 +24,17 @@ enum Difficult {
 }
 
 
+// Computed properties
+struct TestGame {
+    var difficult: String
+    var attempts: Int {
+        switch difficult {
+        case "easy":
+            return 10
+        case "hard":
+            return 5
+        default:
+            return 10
+        }
+    }
+}
