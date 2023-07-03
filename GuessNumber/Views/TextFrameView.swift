@@ -21,6 +21,7 @@ struct TextFrameView: View {
         .font(.title).bold()
         .foregroundColor(.white)
         .padding()
+        .padding(.bottom, 80)
 //        .frame(maxWidth: .infinity)
 //        .frame(height: 150)
 //        .background(RoundedRectangle(cornerRadius: 10)

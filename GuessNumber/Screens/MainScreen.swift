@@ -19,10 +19,10 @@ struct MainScreen: View {
         NavigationStack {
                 ZStack {
                     BackgroundView(screen: .menu)
-                    VStack(spacing: 20) {
+                    VStack {
                         TextFrameView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
                         
-                        HStack(spacing: 30) {
+                        VStack(spacing: 30) {
                             NavigationLink {
                                 GameLevel(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
                             } label: {
