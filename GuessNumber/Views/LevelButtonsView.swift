@@ -10,7 +10,7 @@ import SwiftUI
 struct LevelButtonsView: View {
     var title: String
     var colorText: Color
-    var colorFrame: Color
+    var colorFrame = Color(.white)
    
     
     var body: some View {
@@ -24,8 +24,13 @@ struct LevelButtonsView: View {
                 
                 .foregroundColor(colorText)
                 .frame(width: 250, height: 80)
-                .background(RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(colorFrame))
+                
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(colorFrame)
+                    .shadow(color: Color(.black).opacity(0.6), radius: 10)
+                )
+               
         }
     }
 }
@@ -34,7 +39,7 @@ struct LevelButtonsView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView(screen: .menu)
-            VStack {
+            VStack(spacing: 40) {
                 LevelButtonsView(title: "easy", colorText: Color("Plum"), colorFrame: .white)
                 LevelButtonsView(title: "hard", colorText: Color("Plum"), colorFrame: .white)
             }

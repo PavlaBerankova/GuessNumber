@@ -13,7 +13,6 @@ struct MainScreen: View {
     let easy = Difficult.easy
     let hard = Difficult.hard
     let backgroundColor: Screen
-    let colorPlum = Color(.white)
     
     var body: some View {
         NavigationStack {
@@ -26,50 +25,24 @@ struct MainScreen: View {
                             NavigationLink {
                                 GameLevel(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
                             } label: {
-                                LevelButtonsView(title: easy.title, colorText: Color("background2"), colorFrame: colorPlum)
+                                LevelButtonsView(title: easy.title, colorText: Color("background2"))
                             }
                             
                             NavigationLink {
                                 GameLevel(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
                             } label: {
-                                LevelButtonsView(title: hard.title, colorText: Color("background2"), colorFrame: colorPlum)
+                                LevelButtonsView(title: hard.title, colorText: Color("background2"))
                             }
                         }
                       
                         } //: VSTACK
                     .padding(.horizontal, 20)
-//                            GameView(difficult: model.game)
-//                            } label: {
-//                                Buttons(difficult: difficult.rawValue, attempt: 5, color: .black, backgroundColor: .easy)
-//                            }
-//
-//                        NavigationLink {
-//                            GameView(choosenLevel: "hard")
-//                        } label: {
-//                            Buttons(difficult: "hard", attempt: 5, color: .black, backgroundColor: .hard)
-//                        }
                         } //: ZSTACK
                 .ignoresSafeArea()
-                    
-                    
-                   
                 } //: NAVIGATIONSTACK
-                
             } //: BODY
         }
-//    @State private var userNumber: Int!
-//    @State public var attempts = 10
-//
-//    @State private var secretNumber = Int.random(in: 1...100)
-//
-//    @FocusState var isInputActive: Bool
-//    @State private var showAlert = false
-//    @State private var alertLose = false
-//    @State private var alertWin = false
-//    @State private var alertError = false
-//    @State private var scoreTitle = ""
-//    @State private var tappedEasy = false
-//    @State private var tappedHard = false
+   
 //
 //    var body: some View {
 //        GeometryReader { geometry in
