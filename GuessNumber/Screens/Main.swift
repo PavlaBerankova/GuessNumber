@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MainScreen: View {
+struct Main: View {
  
     let easy = Difficult.easy
     let hard = Difficult.hard
@@ -23,13 +23,13 @@ struct MainScreen: View {
                         
                         VStack(spacing: 30) {
                             NavigationLink {
-                                GameLevel(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
+                                Level(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
                             } label: {
                                 LevelButtonsView(title: easy.title, colorText: Color("background2"))
                             }
                             
                             NavigationLink {
-                                GameLevel(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
+                                Level(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
                             } label: {
                                 LevelButtonsView(title: hard.title, colorText: Color("background2"))
                             }
@@ -218,6 +218,6 @@ struct MainScreen: View {
 
 struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreen(backgroundColor: .menu)
+        Main(backgroundColor: .menu)
     }
 }
