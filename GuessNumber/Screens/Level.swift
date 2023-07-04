@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct Level: View {
-    let title: String
+    var title: String
     var attempts: Int
-    let backgroundColor: Screen
+    var backgroundColor: Screen
+    var game = Gameplay()
     
     //    @State private var userNumber = 0
     @State private var userInput: Int?
@@ -19,8 +20,8 @@ struct Level: View {
     
     @State private var showAlert = false
     @State private var alertButtonTitle = ""
-    @State private var alertMessage = ""
-    @State private var scoreTitle = ""
+    @State public var alertMessage = ""
+    @State private var alertTitle = ""
     //    @State private var alertLose = false
     //    @State private var alertWin = false
     //    @State private var alertError = false
@@ -36,6 +37,7 @@ struct Level: View {
                         TextFrameView(textFirstLine: "\(title)".uppercased(), textSecondLine: "ATTEMPTS: \(attempts)")
                         
                         Text("\(secretNumber)")
+                            .foregroundColor(.white)
                         
                         TextField("1 ~ 100", value: $userInput, format: .number)
                             .font(.title)
@@ -53,7 +55,7 @@ struct Level: View {
                                         isInputActive.toggle()
                                         showAlert = true
                                         play()
-                                        
+                                      
                                     }
                                 }
                             }
@@ -66,55 +68,34 @@ struct Level: View {
                         //                            }
                         
                         // MARK: Alert
-                            .alert(scoreTitle, isPresented: $showAlert) {
+                            .alert(alertTitle, isPresented: $showAlert) {
                                 Button(alertButtonTitle, role: .none) {
                                     //                                    playAgain()
                                 }
                             } message: {
                                 Text("\(alertMessage)")
                             }
-                        
-                        
-                        // MARK: Lose alert
-                        //                            .alert(scoreTitle, isPresented: $alertLose) {
-                        //                                Button("Play again", role: .none) {
-                        ////                                    playAgain()
-                        //                                }
-                        //                            } message: {
-                        //                                Text("The secret number is \(secretNumber).")
-                        //                            }
-                        
-                        // MARK: Win alert
-                        //                            .alert(scoreTitle, isPresented: $alertWin) {
-                        //                                Button("Play again", role: .none) {
-                        ////                                    playAgain()
-                        //                                }
-                        //                            } message: {
-                        //                                Text("Congratulations! \n The secret number is \(secretNumber).")
-                        //                            }
-                        
-                        // MARK: Error alert
-                        //                            .alert("ERROR", isPresented: $alertError) {
-                        //                                Button("Try again", role: .none) { }
-                        //                            } message: {
-                        //                                Text(scoreTitle)
-                        //                            }
-                        
                         Spacer()
                     } //: VSTACK
                     .padding(.horizontal, 20)
                 } //: ZSTACK
-                //                .navigationTitle("LEVEL: \(title)")
-                //                .navigationBarTitleDisplayMode(.large)
             }
         }
     }
-    
-    //    func addNumberToArray() {
-    //        userAttempts.append(userInput ?? 0)
-    //    }
-    
-    mutating func play() {
+        
+    func play() {
+        guard userInput != nil else {
+            alertTitle = "ERROR!"
+            alertMessage = "You must write number 1-100."
+            alertButtonTitle = "Try again"
+            return
+        }
+        
+        if userInput! >= 1 && userInput! <= 100 {
+            
+        }
+        
+        
         
     }
     //        if userNumber >= 1 && userNumber <= 100 {
@@ -197,6 +178,6 @@ struct Level: View {
 
 struct GameLevel_Previews: PreviewProvider {
     static var previews: some View {
-        Level(title: "EASY", attempts: 10, backgroundColor: .easy)
+        Level(title: "Easy", attempts: 10, backgroundColor: .easy)
     }
 }

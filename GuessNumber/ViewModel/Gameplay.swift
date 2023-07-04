@@ -8,10 +8,10 @@
 import SwiftUI
 
 class Gameplay {
-    
-//    func addNumberToArray() {
-//      userAttempts.append(userInput)
-//    }
-    
-    
-}
+//    func play(userNumber: Int?) {
+//            guard userNumber != nil else {
+//                
+//            }
+        
+    }
+
