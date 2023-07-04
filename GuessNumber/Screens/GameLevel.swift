@@ -12,25 +12,22 @@ struct GameLevel: View {
     var attempts: Int
     let backgroundColor: Screen
     
-    @State private var userNumber = 00
-    //    @State private var testNumber = "56"
-    @State var userInput: Int?
-    @State var userAttempts = [Int]()
-    
-//    @State private var userNumber: Int!
+    @State private var userNumber = 0
+    @State private var userInput: Int?
     @State private var secretNumber = Int.random(in: 1...100)
     @FocusState var isInputActive: Bool
     @State private var showAlert = false
-    @State private var alertLose = false
-    @State private var alertWin = false
-    @State private var alertError = false
-    @State private var scoreTitle = ""
-    @State private var tappedEasy = false
-    @State private var tappedHard = false
-    
     @State private var alertTitle = ""
     @State private var alertButtonTitle = ""
     @State private var alertMessage = ""
+    @State private var scoreTitle = ""
+//    @State private var alertLose = false
+//    @State private var alertWin = false
+//    @State private var alertError = false
+
+   
+    
+  
     
     var body: some View {
         NavigationStack {
@@ -41,11 +38,11 @@ struct GameLevel: View {
                     VStack {
                         TextFrameView(textFirstLine: "\(title)".uppercased(), textSecondLine: "ATTEMPTS: \(attempts)")
                         
-                        LazyVGrid(columns: ColumnAttempts().column) {
-                            ForEach(userAttempts, id: \.self) { item in
-                                AttemptFrameView(chooseNumber: item)
-                            }
-                        }
+//                        LazyVGrid(columns: ColumnAttempts().column) {
+//                            ForEach(userAttempts, id: \.self) { item in
+//                                AttemptFrameView(chooseNumber: item)
+//                            }
+//                        }
                         
                         TextField("1 ~ 100", value: $userInput, format: .number)
                             .font(.title)
@@ -60,10 +57,10 @@ struct GameLevel: View {
                                 ToolbarItemGroup(placement: .keyboard) {
                                     Spacer()
                                     Button("Done") {
-                                        addNumberToArray()
                                         userNumber = userInput ?? 0
                                         isInputActive.toggle()
                                         showAlert = true
+                                        
                                     }
                                 }
                             }
@@ -81,34 +78,34 @@ struct GameLevel: View {
 //                                    playAgain()
                                 }
                             } message: {
-                                Text("The secret number is \(secretNumber).")
+                                Text("\(alertMessage)")
                             }
                         
                         
                         // MARK: Lose alert
-                            .alert(scoreTitle, isPresented: $alertLose) {
-                                Button("Play again", role: .none) {
-//                                    playAgain()
-                                }
-                            } message: {
-                                Text("The secret number is \(secretNumber).")
-                            }
+//                            .alert(scoreTitle, isPresented: $alertLose) {
+//                                Button("Play again", role: .none) {
+////                                    playAgain()
+//                                }
+//                            } message: {
+//                                Text("The secret number is \(secretNumber).")
+//                            }
                         
                         // MARK: Win alert
-                            .alert(scoreTitle, isPresented: $alertWin) {
-                                Button("Play again", role: .none) {
-//                                    playAgain()
-                                }
-                            } message: {
-                                Text("Congratulations! \n The secret number is \(secretNumber).")
-                            }
+//                            .alert(scoreTitle, isPresented: $alertWin) {
+//                                Button("Play again", role: .none) {
+////                                    playAgain()
+//                                }
+//                            } message: {
+//                                Text("Congratulations! \n The secret number is \(secretNumber).")
+//                            }
                         
                         // MARK: Error alert
-                            .alert("ERROR", isPresented: $alertError) {
-                                Button("Try again", role: .none) { }
-                            } message: {
-                                Text(scoreTitle)
-                            }
+//                            .alert("ERROR", isPresented: $alertError) {
+//                                Button("Try again", role: .none) { }
+//                            } message: {
+//                                Text(scoreTitle)
+//                            }
                         
                         Spacer()
                     } //: VSTACK
@@ -120,9 +117,9 @@ struct GameLevel: View {
         }
     }
     
-    func addNumberToArray() {
-        userAttempts.append(userInput ?? 0)
-    }
+//    func addNumberToArray() {
+//        userAttempts.append(userInput ?? 0)
+//    }
     
     mutating func play() {
         if userNumber >= 1 && userNumber <= 100 {
@@ -138,14 +135,15 @@ struct GameLevel: View {
                 
             } else if userNumber > secretNumber {
                 scoreTitle = "❌ TOO HIGH ⬆️"
+                alertMessage = "TOO HIGH"
                 
             } else if userNumber < secretNumber {
                 scoreTitle = "❌ TOO LOW ⬇️"
+                alertMessage = "TOO LOW"
             }
         } else {
-            showAlert = false
-            alertError = true
             scoreTitle = "Invalid input"
+            alertMessage = "Invalid input"
         }
     }
         
