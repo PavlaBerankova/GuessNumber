@@ -29,7 +29,7 @@ struct Level: View {
     @State private var showAlert = false
     @State private var alertButtonTitle = ""
     @State public var alertMessage = ""
-    @State private var alertTitle = AlertTitle.error
+    @State private var alertTitle = AlertTitle(rawValue: AlertTitle.empty.rawValue)
     
     var body: some View {
         NavigationStack {
@@ -65,9 +65,9 @@ struct Level: View {
                                 }
                             }
                         // MARK: Alert
-                            .alert(alertTitle, isPresented: $showAlert) {
+                            .alert("\(alertTitle!.rawValue)", isPresented: $showAlert) {
                                 Button(alertButtonTitle, role: .none) {
-                                    if alertTitle == "🏆 YOU WIN 🏆" || alertTitle == "👎 YOU LOSE 👎" {
+                                    if alertTitle == .win || alertTitle == .lose {
                                         playAgain(level)
                                     }
                                 }
@@ -84,7 +84,7 @@ struct Level: View {
     
     func play() {
         guard userInput != nil else {
-            alertTitle = "ERROR!"
+            alertTitle = .error
             alertMessage = "You must write number 1-100."
             alertButtonTitle = "Try again"
             return
@@ -93,25 +93,25 @@ struct Level: View {
         if let userInput = userInput { //userInput >= 1 && userInput <= 100 || (userInput < 1 || userInput > 100) {
             attempts -= 1
             if userInput == secretNumber {
-                alertTitle = "🏆 YOU WIN 🏆"
+                alertTitle = .win
                 alertMessage = "Congratulations! \n The secret number is \(secretNumber)."
                 alertButtonTitle = "Play again"
             } else if attempts == 0 {
-                alertTitle = "👎 YOU LOSE 👎"
+                alertTitle = .lose
                 alertMessage = "The secret number is \(secretNumber)."
                 alertButtonTitle = "Play again"
                 
             } else if userInput > secretNumber {
-                alertTitle = "❌ TOO HIGH ⬆️"
+                alertTitle = .high
                 alertMessage = ""
                 alertButtonTitle = "Try again"
                 
             } else if userInput < secretNumber {
-                alertTitle = "❌ TOO LOW ⬇️"
+                alertTitle = .low
                 alertMessage = ""
                 alertButtonTitle = "Try again"
             } else {
-                alertTitle = "ERROR"
+                alertTitle = .error
                 alertMessage = "The number is out of range."
                 alertButtonTitle = "Try again"
             }

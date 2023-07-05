@@ -24,6 +24,7 @@ enum Difficult {
 }
 
 enum AlertTitle: String {
+    case empty = ""
     case error = "ERROR"
     case win = "🏆 YOU WIN 🏆"
     case lose = "👎 YOU LOSE 👎"
