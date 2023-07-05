@@ -76,6 +76,7 @@ struct Level: View {
                             .alert("\(alertTitle!.rawValue)", isPresented: $showAlert) {
                                 Button(alertButtonTitle, role: .none) {
                                     self.userInput = nil
+                                    isInputActive.toggle()
                                     if alertTitle == .win || alertTitle == .lose {
                                         playAgain(level)
                                     }
