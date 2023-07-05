@@ -23,7 +23,7 @@ In this branch you will find an improved version of the application - changed co
 
 ## **MAIN** 
 This branch is the first version of the application and at the same time my very first application using swiftui
-
+- I converted my older project: Guess the number in CommandLine into a mobile app
 
 <div style="display: flex;">
   <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/aea7b647-7faa-4e0a-928a-3c696a89e26b" alt="MainScreen" width="400" />
