@@ -10,6 +10,3 @@ You choose two difficulty levels (Easy and Hard) and the number of attempts will
 
 https://user-images.githubusercontent.com/107038196/217248969-f6da71fa-b5da-416f-9b37-2212ce7dc0f1.mov
 
-
-
-![Simulator Screen Recording - iPhone 12 mini - 2023-07-05 at 13 42 59](https://github.com/PavlaBerankova/GuessNumber/assets/107038196/38acb32a-d9ca-4b9b-8fae-ea6bf1985455)
