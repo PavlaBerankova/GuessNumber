@@ -1,5 +1,4 @@
 # **GUESS THE NUMBER APP**
-## I converted my older project: Guess the number in CommandLine, into a mobile app
 
 ## This project has 2 branches - main and version.2
 
