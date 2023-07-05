@@ -10,3 +10,4 @@ You choose two difficulty levels (Easy and Hard) and the number of attempts will
 
 https://user-images.githubusercontent.com/107038196/217248969-f6da71fa-b5da-416f-9b37-2212ce7dc0f1.mov
 
+![GuessNumberDemo](https://github.com/PavlaBerankova/GuessNumber/assets/107038196/6d021e9f-aba0-46b2-ba68-efc8470eb282)
