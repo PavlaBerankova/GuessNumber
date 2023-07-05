@@ -19,6 +19,8 @@ In this branch you will find an improved version of the application - changed co
 
 
 
+
+
 ## **MAIN** 
 This branch is the first version of the application and at the same time my very first application using swiftui
 
