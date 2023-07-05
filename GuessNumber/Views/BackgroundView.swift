@@ -37,6 +37,6 @@ struct BackgroundView: View {
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundView(screen: .menu)
+        BackgroundView(screen: .easy)
     }
 }

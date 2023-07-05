@@ -145,6 +145,6 @@ struct Level: View {
 
 struct GameLevel_Previews: PreviewProvider {
     static var previews: some View {
-        Level(level: "HARD", attempts: 10)
+        Level(level: "EASY", attempts: 10)
     }
 }
