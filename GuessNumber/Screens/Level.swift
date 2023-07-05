@@ -37,21 +37,19 @@ struct Level: View {
                 ZStack {
                     BackgroundView(screen: backgroundColor)
                     
-                    VStack(spacing: 40) {
-                        TextIntroView(textFirstLine: "Guess the number".uppercased(), textSecondLine: "???")
+                    VStack(spacing: 20) {
+                        // MARK: TEXT INTRO
+                        TextIntroView(textFirstLine: "1 ~ 100", textSecondLine: "")
                         
-                        GameButtonView(firstTitle: "ATTEMPTS:", secondTitle: "\(attempts)")
-                        
-                        Text("\(secretNumber)")
-                            .foregroundColor(.white)
-                        
-                        TextField("1 ~ 100", value: $userInput, format: .number)
-                            .font(.title)
-                            .padding([.leading, .trailing], 10)
+                        // MARK: USER INPUT
+                        TextField("Write number...", value: $userInput, format: .number)
+                            .font(.title2)
+                            .padding([.leading], 25)
                             .foregroundColor(.black)
-                            .frame(width: 110, height: 50)
-                        
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 80)
                             .background(Color.white).cornerRadius(10)
+                            .shadow(color: Color(.black).opacity(0.6), radius: 10)
                             .keyboardType(.numberPad)
                             .focused($isInputActive)
                             .toolbar {
@@ -64,7 +62,17 @@ struct Level: View {
                                     }
                                 }
                             }
-                        // MARK: Alert
+                        
+                        // MARK: TOTAL ATTEMPTS
+                        TestAttemptsView(firstTitle1: "TOTAL", secondTitle1: "ATTEMPTS:", thirdTitle1: "\(attempts)")
+                        
+                        Spacer()
+                        
+                        // MARK: SECRET NUMBER - FOR TEST
+                        // Text("\(secretNumber)")
+                        //.foregroundColor(.white)
+                        
+                        // MARK: ALERT
                             .alert("\(alertTitle!.rawValue)", isPresented: $showAlert) {
                                 Button(alertButtonTitle, role: .none) {
                                     if alertTitle == .win || alertTitle == .lose {
@@ -74,14 +82,15 @@ struct Level: View {
                             } message: {
                                 Text("\(alertMessage)")
                             }
-                        Spacer()
                     } //: VSTACK
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, 50)
+                    .padding(.top, 40)
                 } //: ZSTACK
             }
         }
     }
     
+    // MARK: GAME FUNCTIONS
     func play() {
         guard userInput != nil else {
             alertTitle = .error
@@ -90,7 +99,7 @@ struct Level: View {
             return
         }
         
-        if let userInput = userInput { //userInput >= 1 && userInput <= 100 || (userInput < 1 || userInput > 100) {
+        if let userInput = userInput {
             attempts -= 1
             if userInput == secretNumber {
                 alertTitle = .win
@@ -134,88 +143,8 @@ struct Level: View {
 }
 
 
-
-
-//        if userNumber >= 1 && userNumber <= 100 {
-//            attempts -= 1
-//            if userNumber == secretNumber {
-//                scoreTitle = "🏆 YOU WIN 🏆"
-//                alertButtonTitle = "Play again"
-//                alertMessage = "Congratulations! \n The secret number is \(secretNumber)."
-//            } else if attempts == 0 {
-//                scoreTitle = "👎 YOU LOSE 👎"
-//                alertButtonTitle = "Play again"
-//                alertMessage = "The secret number is \(secretNumber)."
-//
-//            } else if userNumber > secretNumber {
-//                scoreTitle = "❌ TOO HIGH ⬆️"
-//                alertMessage = "TOO HIGH"
-//
-//            } else if userNumber < secretNumber {
-//                scoreTitle = "❌ TOO LOW ⬇️"
-//                alertMessage = "TOO LOW"
-//            }
-//        } else {
-//            scoreTitle = "Invalid input"
-//            alertMessage = "Invalid input"
-//        }
-//    }
-
-//    mutating func playAgain() {
-//            attempts = 10
-//            userNumber = 0
-//        }
-//    }
-
-
-
-
-//
-//
-//
-//
-//
-//                }
-//            }.ignoresSafeArea()//end ZSTACK
-//        }.edgesIgnoringSafeArea(.all)//end GEOMETRY
-//    }//end BODY
-//
-//
-//    func play() {
-//        if let userNumber = userNumber, userNumber >= 1 && userNumber <= 100 {
-//            attempts -= 1
-//            if userNumber == secretNumber {
-//                showAlert = false
-//                scoreTitle = "🏆 YOU WIN 🏆"
-//                alertWin = true
-//            } else if attempts == 0 {
-//                showAlert = false
-//                scoreTitle = "👎 YOU LOSE 👎"
-//                alertLose = true
-//            } else if userNumber > secretNumber {
-//                scoreTitle = "❌ TOO HIGH ⬆️"
-//
-//            } else if userNumber < secretNumber {
-//                scoreTitle = "❌ TOO LOW ⬇️"
-//
-//            }
-//        } else {
-//            showAlert = false
-//            alertError = true
-//            scoreTitle = "Invalid input"
-//
-//        }
-//    }
-//
-//    func playAgain() {
-//        attempts = 10
-//        userNumber = 0
-//    }
-//}
-
-
 struct GameLevel_Previews: PreviewProvider {
     static var previews: some View {
-        Level(level: "HARD", attempts: 5)
+        Level(level: "HARD", attempts: 10)
     }
 }

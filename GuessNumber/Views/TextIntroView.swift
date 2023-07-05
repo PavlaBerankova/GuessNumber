@@ -9,24 +9,24 @@ import SwiftUI
 
 struct TextIntroView: View {
     let textFirstLine: String
-    let textSecondLine: String
+    let textSecondLine: String?
     
     var body: some View {
-        LazyVStack(alignment: .center) {
+        Group {
             Image(systemName: "questionmark.bubble")
                 .resizable()
                 .frame(width: 100, height: 100)
             
-                Text(textFirstLine)
+            Text(textFirstLine)
                 .padding(3)
             
-                Text(textSecondLine)
+            Text(textSecondLine ?? "")
         }
         .font(.title).bold()
         .foregroundColor(.white)
-        .padding()
     }
 }
+
 
 struct TextIntroView_Previews: PreviewProvider {
     static var previews: some View {
@@ -37,6 +37,6 @@ struct TextIntroView_Previews: PreviewProvider {
             }
             .padding(.horizontal)
         }
-       
+        
     }
 }

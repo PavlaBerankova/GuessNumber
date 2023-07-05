@@ -16,12 +16,13 @@ struct Main: View {
     
     var body: some View {
         NavigationStack {
+            GeometryReader { geometry in
                 ZStack {
                     BackgroundView(screen: .menu)
-                    VStack(spacing: 150) {
+                    VStack {
                         TextIntroView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
                         
-                        VStack(spacing: 30) {
+                        VStack(spacing: 40) {
                             NavigationLink {
                                 Level(level: easy.title, attempts: easy.attempts)
                             } label: {
@@ -34,10 +35,13 @@ struct Main: View {
                                 GameButtonView(firstTitle: "LEVEL", secondTitle: hard.title)
                             }
                         }
-                        } //: VSTACK
-                    .padding(.horizontal, 20)
-                        } //: ZSTACK
+                        .padding(.top, 180)
+                        .padding(.bottom, 90)
+                    } //: VSTACK
+                    .padding(.horizontal, 50)
+                } //: ZSTACK
                 .ignoresSafeArea()
+            }
                 } //: NAVIGATIONSTACK
             } //: BODY
         }

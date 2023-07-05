@@ -10,25 +10,28 @@ import SwiftUI
 struct GameButtonView: View {
     var firstTitle: String
     var secondTitle: String
+    var thirdTitle: String?
     var colorText = Color("background2")
     var colorFrame = Color(.white)
-   
+    
     
     var body: some View {
         HStack {
             HStack {
                 Text(firstTitle)
                 Text(secondTitle).bold()
+                Text(thirdTitle ?? "").bold()
             }
-                .font(.title)
-                .foregroundColor(colorText)
-                .frame(width: 250, height: 80)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
+            .font(.title)
+            .foregroundColor(colorText)
+            .frame(maxWidth: .infinity)
+            .frame(height: 80)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(colorFrame)
                     .shadow(color: Color(.black).opacity(0.6), radius: 10)
-                )
-               
+            )
+            
         }
     }
 }
