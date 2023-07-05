@@ -22,7 +22,7 @@ struct Main: View {
                     VStack {
                         TextIntroView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
                         
-                        VStack(spacing: 40) {
+                        VStack(spacing: 25) {
                             NavigationLink {
                                 Level(level: easy.title, attempts: easy.attempts)
                             } label: {
@@ -35,7 +35,7 @@ struct Main: View {
                                 GameButtonView(firstTitle: "LEVEL", secondTitle: hard.title)
                             }
                         }
-                        .padding(.top, 180)
+                        .padding(.top, 120)
                         .padding(.bottom, 90)
                     } //: VSTACK
                     .padding(.horizontal, 50)

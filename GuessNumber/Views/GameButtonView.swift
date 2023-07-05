@@ -25,7 +25,7 @@ struct GameButtonView: View {
             .font(.title)
             .foregroundColor(colorText)
             .frame(maxWidth: .infinity)
-            .frame(height: 80)
+            .frame(height: 70)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(colorFrame)

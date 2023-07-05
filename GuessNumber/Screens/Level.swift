@@ -37,7 +37,7 @@ struct Level: View {
                 ZStack {
                     BackgroundView(screen: backgroundColor)
                     
-                    VStack(spacing: 20) {
+                    VStack(spacing: 15) {
                         // MARK: TEXT INTRO
                         TextIntroView(textFirstLine: "1 ~ 100", textSecondLine: "")
                         
@@ -47,7 +47,7 @@ struct Level: View {
                             .padding([.leading], 25)
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity)
-                            .frame(height: 80)
+                            .frame(height: 60)
                             .background(Color.white).cornerRadius(10)
                             .shadow(color: Color(.black).opacity(0.6), radius: 10)
                             .keyboardType(.numberPad)
@@ -59,6 +59,7 @@ struct Level: View {
                                         isInputActive.toggle()
                                         showAlert = true
                                         play()
+                                        userInput = nil
                                     }
                                 }
                             }
@@ -84,7 +85,7 @@ struct Level: View {
                             }
                     } //: VSTACK
                     .padding(.horizontal, 50)
-                    .padding(.top, 40)
+                    .padding(.top, 30)
                 } //: ZSTACK
             }
         }
@@ -125,18 +126,18 @@ struct Level: View {
                 alertButtonTitle = "Try again"
             }
         }
+        userInput = nil
     }
     
     func playAgain(_ level: String) {
         secretNumber = Int.random(in: 1...100)
-        userInput = 0
         
         if level == "EASY" {
             self.attempts = 10
-            self.userInput = 0
+            self.userInput = nil
         } else {
             self.attempts = 5
-            self.userInput = 0
+            self.userInput = nil
             self.secretNumber = secretNumber
         }
     }
@@ -145,6 +146,6 @@ struct Level: View {
 
 struct GameLevel_Previews: PreviewProvider {
     static var previews: some View {
-        Level(level: "HARD", attempts: 10)
+        Level(level: "EASY", attempts: 10)
     }
 }

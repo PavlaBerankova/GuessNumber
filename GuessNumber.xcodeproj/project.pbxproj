@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44286B582A5352B70077D1A4 /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44286B572A5352B70077D1A4 /* Gameplay.swift */; };
 		4433D0912A4EC18800DF0E15 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4433D0902A4EC18800DF0E15 /* Level.swift */; };
 		44526EE32A551BCE00008DBF /* TestAttemptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44526EE22A551BCE00008DBF /* TestAttemptsView.swift */; };
 		4463B1E3298A60D10013690D /* GuessNumberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4463B1E2298A60D10013690D /* GuessNumberApp.swift */; };
@@ -21,7 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		44286B572A5352B70077D1A4 /* Gameplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 		4433D0902A4EC18800DF0E15 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		44526EE22A551BCE00008DBF /* TestAttemptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAttemptsView.swift; sourceTree = "<group>"; };
 		4463B1DF298A60D10013690D /* GuessNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,7 +67,6 @@
 				44C3430C2A447ACD00C56E4E /* Screens */,
 				44C6813F29CAD8FA002722AB /* Views */,
 				44C6813E29CAD8EA002722AB /* Model */,
-				44C6813D29CAD8D3002722AB /* ViewModel */,
 				4463B1E6298A60D30013690D /* Assets.xcassets */,
 				4463B1E8298A60D30013690D /* Preview Content */,
 			);
@@ -91,14 +88,6 @@
 				4433D0902A4EC18800DF0E15 /* Level.swift */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		44C6813D29CAD8D3002722AB /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				44286B572A5352B70077D1A4 /* Gameplay.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		44C6813E29CAD8EA002722AB /* Model */ = {
@@ -193,7 +182,6 @@
 				44C343102A447F2700C56E4E /* GameButtonView.swift in Sources */,
 				44C343122A44802200C56E4E /* Game.swift in Sources */,
 				4463B1E5298A60D10013690D /* Main.swift in Sources */,
-				44286B582A5352B70077D1A4 /* Gameplay.swift in Sources */,
 				4463B1E3298A60D10013690D /* GuessNumberApp.swift in Sources */,
 				44C3430E2A447BFC00C56E4E /* TextIntroView.swift in Sources */,
 				4463B1F7298A73E40013690D /* BackgroundView.swift in Sources */,

@@ -24,7 +24,7 @@ struct TestAttemptsView: View {
             .font(.title2)
             .foregroundColor(colorText1)
             .frame(maxWidth: .infinity)
-            .frame(height: 80)
+            .frame(height: 60)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(colorFrame1)
