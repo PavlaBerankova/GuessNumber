@@ -1,10 +1,10 @@
-# **🎲  GUESS THE NUMBER APP**
+# **🎲  GUESS THE NUMBER APP** - this project has 2 branches
 
-## This project has 2 branches:
+
+## **VERSION.2** 
+In this branch you will find an improved version of the application - changed code and logic, but also the UI
 
 ### 
-**VERSION.2** - in this branch you will find an improved version of the application - changed code and logic, but also the UI.
-
 - You choose two difficulty levels (Easy and Hard) and the number of attempts will be set accordingly. The game generates a secret number within the range of 1 to 100 and the player tries to guess the number. After entering the number, the result will be displayed in a notification.
 
 <div style="display: flex;">
@@ -19,8 +19,8 @@
 
 
 
-##
-**MAIN** - is the first version of the application 
+## **MAIN** 
+This branch is the first version of the application and at the same time my very first application using swiftui
 
 
 <div style="display: flex;">
