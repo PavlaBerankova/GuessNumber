@@ -7,24 +7,22 @@
 
 import SwiftUI
 
-struct LevelButtonsView: View {
-    var title: String
-    var colorText: Color
+struct GameButtonView: View {
+    var firstTitle: String
+    var secondTitle: String
+    var colorText = Color("background2")
     var colorFrame = Color(.white)
    
     
     var body: some View {
         HStack {
             HStack {
-                Text("Level".uppercased())
-                Text(title.uppercased()).bold()
+                Text(firstTitle)
+                Text(secondTitle).bold()
             }
-           
                 .font(.title)
-                
                 .foregroundColor(colorText)
                 .frame(width: 250, height: 80)
-                
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(colorFrame)
@@ -35,13 +33,13 @@ struct LevelButtonsView: View {
     }
 }
 
-struct LevelButtonsView_Previews: PreviewProvider {
+struct GameButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView(screen: .menu)
             VStack(spacing: 40) {
-                LevelButtonsView(title: "easy", colorText: Color("Plum"), colorFrame: .white)
-                LevelButtonsView(title: "hard", colorText: Color("Plum"), colorFrame: .white)
+                GameButtonView(firstTitle: "LEVEL", secondTitle: "EASY")
+                GameButtonView(firstTitle: "LEVEL", secondTitle: "HARD")
             }
             .padding(.horizontal, 20)
         }

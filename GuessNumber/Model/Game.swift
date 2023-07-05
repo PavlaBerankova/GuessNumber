@@ -23,6 +23,14 @@ enum Difficult {
     }
 }
 
+enum AlertTitle: String {
+    case error = "ERROR"
+    case win = "🏆 YOU WIN 🏆"
+    case lose = "👎 YOU LOSE 👎"
+    case high = "❌ TOO HIGH ⬆️"
+    case low = "❌ TOO LOW ⬇️"
+}
+
 
 // Computed properties
 struct TestGame {

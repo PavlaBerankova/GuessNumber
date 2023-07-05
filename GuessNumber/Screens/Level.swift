@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct Level: View {
-    @State var level: String
-    @State var attempts: Int
     var backgroundColor: Screen
-//    var game = Gameplay()
     
     init(level: String, attempts: Int) {
         self.level = level
@@ -23,19 +20,16 @@ struct Level: View {
         }
     }
     
-    //    @State private var userNumber = 0
-    @State private var userInput: Int?
+    @State var level: String
+    @State var attempts: Int
+    @State private var userInput: Int!
     @State private var secretNumber = Int.random(in: 1...100)
     @FocusState var isInputActive: Bool
     
     @State private var showAlert = false
     @State private var alertButtonTitle = ""
     @State public var alertMessage = ""
-    @State private var alertTitle = ""
-    //    @State private var alertLose = false
-    //    @State private var alertWin = false
-    //    @State private var alertError = false
-    
+    @State private var alertTitle = AlertTitle.error
     
     var body: some View {
         NavigationStack {
@@ -43,8 +37,10 @@ struct Level: View {
                 ZStack {
                     BackgroundView(screen: backgroundColor)
                     
-                    VStack {
-                        TextFrameView(textFirstLine: "\(level)".uppercased(), textSecondLine: "ATTEMPTS: \(attempts)")
+                    VStack(spacing: 40) {
+                        TextIntroView(textFirstLine: "Guess the number".uppercased(), textSecondLine: "???")
+                        
+                        GameButtonView(firstTitle: "ATTEMPTS:", secondTitle: "\(attempts)")
                         
                         Text("\(secretNumber)")
                             .foregroundColor(.white)
@@ -65,18 +61,9 @@ struct Level: View {
                                         isInputActive.toggle()
                                         showAlert = true
                                         play()
-                                        
                                     }
                                 }
                             }
-                        
-                        // MARK: Score alert
-                        //                            .alert(scoreTitle, isPresented: $showAlert) {
-                        //                                Button("Continue", role: .none) { }
-                        //                            } message: {
-                        //                                Text("Try again!")
-                        //                            }
-                        
                         // MARK: Alert
                             .alert(alertTitle, isPresented: $showAlert) {
                                 Button(alertButtonTitle, role: .none) {
@@ -133,12 +120,14 @@ struct Level: View {
     
     func playAgain(_ level: String) {
         secretNumber = Int.random(in: 1...100)
+        userInput = 0
+        
         if level == "EASY" {
             self.attempts = 10
-            userInput = 0
+            self.userInput = 0
         } else {
             self.attempts = 5
-            userInput = 0
+            self.userInput = 0
             self.secretNumber = secretNumber
         }
     }

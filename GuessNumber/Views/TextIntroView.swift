@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFrameView: View {
+struct TextIntroView: View {
     let textFirstLine: String
     let textSecondLine: String
     
@@ -16,26 +16,19 @@ struct TextFrameView: View {
             Text(textFirstLine)
                 .padding(3)
             Text(textSecondLine)
-                
         }
         .font(.title).bold()
         .foregroundColor(.white)
         .padding()
-        .padding(.bottom, 80)
-//        .frame(maxWidth: .infinity)
-//        .frame(height: 150)
-//        .background(RoundedRectangle(cornerRadius: 10)
-//            .fill(Color(.white))
-            
     }
 }
 
-struct TextFrameView_Previews: PreviewProvider {
+struct TextIntroView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView(screen: .menu)
             VStack {
-                TextFrameView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
+                TextIntroView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
             }
             .padding(.horizontal)
         }
