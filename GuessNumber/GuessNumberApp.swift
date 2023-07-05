@@ -11,7 +11,7 @@ import SwiftUI
 struct GuessNumberApp: App {
     var body: some Scene {
         WindowGroup {
-            Main(backgroundColor: .menu)
+            Main()
         }
     }
 }

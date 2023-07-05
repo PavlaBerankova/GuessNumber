@@ -12,7 +12,7 @@ struct Main: View {
  
     let easy = Difficult.easy
     let hard = Difficult.hard
-    let backgroundColor: Screen
+    let backgroundColor: Screen = .menu
     
     var body: some View {
         NavigationStack {
@@ -23,13 +23,13 @@ struct Main: View {
                         
                         VStack(spacing: 30) {
                             NavigationLink {
-                                Level(title: easy.title, attempts: easy.attempts, backgroundColor: .easy)
+                                Level(level: easy.title, attempts: easy.attempts)
                             } label: {
                                 LevelButtonsView(title: easy.title, colorText: Color("background2"))
                             }
                             
                             NavigationLink {
-                                Level(title: hard.title, attempts: hard.attempts, backgroundColor: .hard)
+                                Level(level: hard.title, attempts: hard.attempts)
                             } label: {
                                 LevelButtonsView(title: hard.title, colorText: Color("background2"))
                             }
@@ -218,6 +218,6 @@ struct Main: View {
 
 struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
-        Main(backgroundColor: .menu)
+        Main()
     }
 }
