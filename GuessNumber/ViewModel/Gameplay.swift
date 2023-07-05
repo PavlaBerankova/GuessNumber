@@ -9,7 +9,17 @@ import SwiftUI
 
 class Gameplay {
     
-    func playing(input: Int) {
+    @State private var attempts = 10
+    @State private var userInput: Int!
+    @State private var secretNumber = Int.random(in: 1...100)
+    @FocusState var isInputActive: Bool
+    
+    @State private var showAlert = false
+    @State private var alertButtonTitle = ""
+    @State public var alertMessage = ""
+    @State private var alertTitle = AlertTitle(rawValue: AlertTitle.error.rawValue)
+    
+    func playing() {
         guard userInput != nil else {
             alertTitle = .error
             alertMessage = "You must write number 1-100."
@@ -44,6 +54,6 @@ class Gameplay {
             }
         }
     }
-    }
 }
+
 

@@ -18,7 +18,7 @@ struct Main: View {
         NavigationStack {
                 ZStack {
                     BackgroundView(screen: .menu)
-                    VStack {
+                    VStack(spacing: 150) {
                         TextIntroView(textFirstLine: "Guess the Number", textSecondLine: "🎲 1 ~ 100")
                         
                         VStack(spacing: 30) {

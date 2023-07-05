@@ -12,10 +12,15 @@ struct TextIntroView: View {
     let textSecondLine: String
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text(textFirstLine)
+        LazyVStack(alignment: .center) {
+            Image(systemName: "questionmark.bubble")
+                .resizable()
+                .frame(width: 100, height: 100)
+            
+                Text(textFirstLine)
                 .padding(3)
-            Text(textSecondLine)
+            
+                Text(textSecondLine)
         }
         .font(.title).bold()
         .foregroundColor(.white)
