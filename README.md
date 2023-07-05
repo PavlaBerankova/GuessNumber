@@ -23,3 +23,13 @@
 **MAIN** - is the first version of the application 
 
 
+<div style="display: flex;">
+  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/aea7b647-7faa-4e0a-928a-3c696a89e26b" alt="MainScreen" width="400" />
+  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/c9a3deab-4395-4301-94b6-57dbbe613880" alt="DemoGif" width="400" />
+</div>
+
+<div style="display: flex;">
+  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/daeb934b-88ab-4023-a847-df151270946c" alt="LevelScreen" width="400" />
+  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/f74506f8-70dd-4812-ae5c-f94efff70c94" alt="LevelScreenAlert" width="400" />
+</div>
+
