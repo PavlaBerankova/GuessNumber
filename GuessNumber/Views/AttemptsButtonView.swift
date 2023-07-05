@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TestAttemptsView: View {
+struct AttemptsButtonView: View {
     var firstTitle1: String
     var secondTitle1: String
     var thirdTitle1: String?
@@ -28,7 +28,7 @@ struct TestAttemptsView: View {
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(colorFrame1)
-                    .shadow(color: Color(.black).opacity(0.6), radius: 10)
+                    .shadow(color: Color(.black).opacity(0.6), radius: 5)
             )
             
         }
@@ -36,13 +36,13 @@ struct TestAttemptsView: View {
 }
 
 
-struct TestAttemptsView_Previews: PreviewProvider {
+struct AttemptsButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView(screen: .hard)
             
             VStack {
-                TestAttemptsView(firstTitle1: "TOTAL", secondTitle1: "ATTEMPTS:", thirdTitle1: "10")
+                AttemptsButtonView(firstTitle1: "TOTAL", secondTitle1: "ATTEMPTS:", thirdTitle1: "10")
             }
             .padding(.horizontal, 40)
         }

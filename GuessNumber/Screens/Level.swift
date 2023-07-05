@@ -37,7 +37,7 @@ struct Level: View {
                 ZStack {
                     BackgroundView(screen: backgroundColor)
                     
-                    VStack(spacing: 15) {
+                    VStack(spacing: 25) {
                         // MARK: TEXT INTRO
                         TextIntroView(textFirstLine: "1 ~ 100", textSecondLine: "")
                         
@@ -59,13 +59,12 @@ struct Level: View {
                                         isInputActive.toggle()
                                         showAlert = true
                                         play()
-                                        userInput = nil
                                     }
                                 }
                             }
                         
                         // MARK: TOTAL ATTEMPTS
-                        TestAttemptsView(firstTitle1: "TOTAL", secondTitle1: "ATTEMPTS:", thirdTitle1: "\(attempts)")
+                        AttemptsButtonView(firstTitle1: "TOTAL", secondTitle1: "ATTEMPTS:", thirdTitle1: "\(attempts)")
                         
                         Spacer()
                         
@@ -76,6 +75,7 @@ struct Level: View {
                         // MARK: ALERT
                             .alert("\(alertTitle!.rawValue)", isPresented: $showAlert) {
                                 Button(alertButtonTitle, role: .none) {
+                                    self.userInput = nil
                                     if alertTitle == .win || alertTitle == .lose {
                                         playAgain(level)
                                     }
@@ -126,19 +126,16 @@ struct Level: View {
                 alertButtonTitle = "Try again"
             }
         }
-        userInput = nil
     }
     
     func playAgain(_ level: String) {
         secretNumber = Int.random(in: 1...100)
+        userInput = nil
         
         if level == "EASY" {
             self.attempts = 10
-            self.userInput = nil
         } else {
             self.attempts = 5
-            self.userInput = nil
-            self.secretNumber = secretNumber
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GameButtonView: View {
+struct LevelButtonView: View {
     var firstTitle: String
     var secondTitle: String
     var thirdTitle: String?
@@ -31,18 +31,17 @@ struct GameButtonView: View {
                     .foregroundColor(colorFrame)
                     .shadow(color: Color(.black).opacity(0.6), radius: 10)
             )
-            
         }
     }
 }
 
-struct GameButtonView_Previews: PreviewProvider {
+struct LevelButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundView(screen: .menu)
             VStack(spacing: 40) {
-                GameButtonView(firstTitle: "LEVEL", secondTitle: "EASY")
-                GameButtonView(firstTitle: "LEVEL", secondTitle: "HARD")
+                LevelButtonView(firstTitle: "LEVEL", secondTitle: "EASY")
+                LevelButtonView(firstTitle: "LEVEL", secondTitle: "HARD")
             }
             .padding(.horizontal, 20)
         }

@@ -12,10 +12,11 @@ struct TextIntroView: View {
     let textSecondLine: String?
     
     var body: some View {
-        Group {
+        VStack {
             Image(systemName: "questionmark.bubble")
                 .resizable()
                 .frame(width: 100, height: 100)
+                
             
             Text(textFirstLine)
                 .padding(3)
@@ -24,6 +25,7 @@ struct TextIntroView: View {
         }
         .font(.title).bold()
         .foregroundColor(.white)
+        .shadow(color: Color(.black).opacity(0.6), radius: 5)
     }
 }
 

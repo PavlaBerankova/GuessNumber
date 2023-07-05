@@ -26,13 +26,13 @@ struct Main: View {
                             NavigationLink {
                                 Level(level: easy.title, attempts: easy.attempts)
                             } label: {
-                                GameButtonView(firstTitle: "LEVEL", secondTitle: easy.title)
+                                LevelButtonView(firstTitle: "LEVEL", secondTitle: easy.title)
                             }
                             
                             NavigationLink {
                                 Level(level: hard.title, attempts: hard.attempts)
                             } label: {
-                                GameButtonView(firstTitle: "LEVEL", secondTitle: hard.title)
+                                LevelButtonView(firstTitle: "LEVEL", secondTitle: hard.title)
                             }
                         }
                         .padding(.top, 120)
