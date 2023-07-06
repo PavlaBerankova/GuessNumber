@@ -43,7 +43,20 @@ Have fun playing Guess Number!
 Here are some screenshots comparing the initial version of the Guess Number app from the main branch and the enhanced version from the version.2 branch:
 
 
-**Main Branch (Initial Version):**
+## Version.2 Branch (Enhanced Version):
+
+<div style="display: flex;">
+  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/e9daed19-df8c-4c0d-a363-7848a49aa8ad" alt="MainScreen" width="400" />
+  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/6d021e9f-aba0-46b2-ba68-efc8470eb282" alt="DemoGif" width="400" />
+</div>
+
+<div style="display: flex;">
+  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/204e3c45-8b0d-4b45-9048-ec9e76bc2dc4" alt="LevelScreen" width="400" />
+  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/ab90728b-121b-473e-a467-3ae0268f3291" alt="LevelScreenAlert" width="400" />
+</div>
+
+
+## **Main Branch (Initial Version):**
 
 <div style="display: flex;">
   <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/aea7b647-7faa-4e0a-928a-3c696a89e26b" alt="MainScreen" width="400" />
@@ -59,9 +72,4 @@ Here are some screenshots comparing the initial version of the Guess Number app 
 
 
 
-**Version.2 Branch (Enhanced Version):**
 
-<div style="display: flex;">
-  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/e9daed19-df8c-4c0d-a363-7848a49aa8ad" alt="MainScreen" width="400" />
-  <img src="https://github.com/PavlaBerankova/GuessNumber/assets/107038196/6d021e9f-aba0-46b2-ba68-efc8470eb282" alt="DemoGif" width="400" />
-</div>
