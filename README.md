@@ -1,6 +1,6 @@
 # Guess Number Mobile App
 
-Guess Number is a simple mobile application developed in SwiftUI for iOS. It allows the user to play a number guessing game with two difficulty levels: easy and hard. In the easy level, the player has 10 attempts to guess the hidden number, while in the hard level, they only have 5 attempts.
+Guess Number is a mobile application developed in SwiftUI for iOS. It allows the user to play a number guessing game with two difficulty levels: easy and hard. In the easy level, the player has 10 attempts to guess the hidden number, while in the hard level, they only have 5 attempts.
 
 
 - Version control with three branches: `main`, `version.2`, and `features`.
